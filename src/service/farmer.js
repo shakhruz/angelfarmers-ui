@@ -5,7 +5,7 @@ Vue.mixin({
     // проверим нужно ли обслуживание для ферм и проводим его
     async checkFarmActions(account_name) {
         if (this.$store.state.pause_all) {
-            console.log("Все остановлено, не буду проверять фермы в checkFarms....");
+            // console.log("Все остановлено, не буду проверять фермы в checkFarms....");
             return;
         }
         let farm = null;
@@ -59,7 +59,7 @@ Vue.mixin({
 
         // проверим не перегрелся ли CPU 
         if (game.account.cpu_used_percent>=100) {
-            console.log(game.account_name + " CPU 100% перегрето. Даже не буду пытаться обслужить ферму... подождем");
+            console.log(game.account_name + " CPU 100% перегрето. подождем");
             return;
         }
         
@@ -381,7 +381,7 @@ Vue.mixin({
     },
     // Проверяем действия для вторичных и мастер ферм
     async masterFarmActions(game) {
-        console.log("masterFarmActions " + game.account_name);
+        // console.log("masterFarmActions " + game.account_name);
         if (this.$store.state.pause_all) {
             // console.log("Все остановлено, не буду проверять фермы в masterFarmActions....");
             return;
@@ -420,7 +420,7 @@ Vue.mixin({
             }
             if (ids.length>0) {
                 // нашли что отправить
-                console.log("Нашел что отправить: " + ids);
+                // console.log("Нашел что отправить: " + ids);
                 const result = await this.atomic_send_assets(game.account_name, ids, game.settings.send_crops_to, pkey, delegate);
                 if (result.status===true) {
                     this.log_action(this.$t("Sent crops from") + " " + game.account_name + " " + this.$t("to") + " " + game.settings.send_crops_to, '', '');
@@ -434,13 +434,13 @@ Vue.mixin({
         
         // ОТПРАВИТЬ ЕДУ НА ПЛАНТАЦИИ ПО ПОТРЕБНОСТЯМ
         if (game.settings.send_food_to && game.settings.send_food_to.trim()!='' && game.tokens.fwf>0) {
-            console.log("это мастер ферма, пройдемся по плантациям, проверим еду...");
+            // console.log("это мастер ферма, пройдемся по плантациям, проверим еду...");
             let ffarms = game.settings.send_food_to.split(',');
-            console.log("плантации: " + JSON.stringify(ffarms));
+            // console.log("плантации: " + JSON.stringify(ffarms));
             if (ffarms && ffarms.length>0) {
                 for(let ff=0;ff<this.$store.state.farms.length;ff++) {
                     let farm = this.$store.state.farms[ff];
-                    console.log("проверим хватает ли еды на ферме " + farm.account_name);
+                    // console.log("проверим хватает ли еды на ферме " + farm.account_name);
                     if (ffarms.indexOf(farm.account_name)>=0) {
                         if (farm.daily_expense_food>0) {
                             let food_available = farm.balance.food + farm.tokens.fwf;
@@ -475,12 +475,12 @@ Vue.mixin({
             console.log("проверяем нужно ли отправить семена...");
             let sfarms = game.settings.send_barley_seeds_to.split(',');
             if (sfarms && sfarms.length>0) {
-                console.log("пройдемся по фермам, посмотрим хватает ли им семян: " + sfarms.join());
+                // console.log("пройдемся по фермам, посмотрим хватает ли им семян: " + sfarms.join());
                 for(let ff=0;ff<this.$store.state.farms.length;ff++) {
                     let farm = this.$store.state.farms[ff];
                     if (sfarms.indexOf(farm.account_name)>=0) {
                         // эта ферма на обеспечении семенами
-                        console.log("checking " + farm.account_name + " if seeds are needed");
+                        // console.log("checking " + farm.account_name + " if seeds are needed");
                         farm.buildings.list.forEach(async building => {
                             if (building["template_id"] == "298592" && building["slots_used"]<8) {
                                 let barley_in_chest = this.calcAssetsInChest(farm, "298595");
