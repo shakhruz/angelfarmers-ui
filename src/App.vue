@@ -34,6 +34,10 @@
       <v-card-text>
         {{$t("Telegram Bot")}}
         <a href="https://t.me/angelfarmers_bot" target="_blank">@AngelFarmers_bot</a>
+        v1.0.0
+        <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
       </v-card-text>
     </v-navigation-drawer>
     <v-app-bar app color="teal darken-2" dark>
