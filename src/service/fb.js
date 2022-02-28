@@ -28,19 +28,6 @@ Vue.mixin({
         }     
     },
 
-    // Добавить запись по состоянию фермы
-    async fb_updateFarmState(farmState) {
-        // console.log("сохраним состояние фермы " + farmState.account_name);
-        try {  
-            await farm_state_db.doc(farmState.account_name).set(farmState);
-            console.log("+ успешно обновил статус фермы " + farmState.account_name);
-            return true;
-        } catch (error) {
-            console.log("ОШИБКА: Не смог добавить state. ОШИБКА: " + error);
-            return false;    
-        }     
-    },    
-
     // сохраним состояние всех ферм в базу данных
     async fb_updateAllFarmsState() {
         // console.log("Обновим состояния ферм в базе")
@@ -65,10 +52,23 @@ Vue.mixin({
                     total_income_wax: angel_balance.total_wax,
                     donate: angel_balance.donate
                 }
-                this.fb_updateFarmState(state);
+                await this.fb_updateFarmState(state);
             }
         }
     },
+
+    // Добавить запись по состоянию фермы
+    async fb_updateFarmState(farmState) {
+        // console.log("+ update farm state in fb " + farmState.account_name);
+        try {  
+            await farm_state_db.doc(farmState.account_name).set(farmState);
+            // console.log("+ успешно обновил статус фермы " + farmState.account_name);
+            return true;
+        } catch (error) {
+            console.log("ОШИБКА: Не смог добавить state. ОШИБКА: " + error);
+            return false;    
+        }     
+    },    
 
     // Добавить платеж
     async fb_addDonation(account_name, amount) {
@@ -87,8 +87,5 @@ Vue.mixin({
         }     
     },    
 
-    // Получить состояния всех ферм
-    // async fb_getAllFarmsStates() {
-    // },     
   } 
 });

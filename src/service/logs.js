@@ -312,7 +312,7 @@ Vue.mixin({
         this.fb_addActionLog(log);
         // пересчитаем доход фермы
         if (owner) {
-            this.$store.dispatch('updateFarmIncome', owner);
+            // this.$store.dispatch('updateFarmIncome', owner);
             this.$store.dispatch('updateFarm', owner);
         }
     },
