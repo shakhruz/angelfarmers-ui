@@ -5,6 +5,8 @@
       <v-col cols="auto">
         <Accounts/>
       </v-col>
+    </v-row>
+    <v-row justify="center">
         <v-col cols="auto">
           <FarmF12Card :farm="$store.state.farms[$store.state.selectedFarmIndex]" :index="$store.state.selectedFarmIndex" />
         </v-col>

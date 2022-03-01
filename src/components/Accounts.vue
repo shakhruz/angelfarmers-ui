@@ -1,20 +1,20 @@
 <template>
     <v-card elevation="2" outlined 
         :min-width="$vuetify.breakpoint.mobile ? '380px' : '380px'"
-        :max-width="$vuetify.breakpoint.mobile ? '400px' : '400px'"
+        :max-width="$vuetify.breakpoint.mobile ? '400px' : '550px'"
     class="justify-center" 
-    :color="this.$vuetify.theme.dark ? 'grey darken-3' : '#f8f6f2'">
+    :color="this.$vuetify.theme.dark ? 'grey darken-3' : 'teal darken-1 white--text'">
         <div class="text-h5 text-center align-center pa-1 mx-auto mb-1 pb-1">
             {{$t("Checking Accounts")}}
         </div>
-        <v-card-subtitle class="align-center text-center mt-0 mb-0 pt-0 pb-0">
+        <v-card-subtitle class="align-center text-center mt-0 mb-0 pt-0 pb-0  white--text">
             {{$t("Enter all your wax ids")}}
             <br/>
             {{$t("(Ex: xxxx1.wam, xxxx2.wam, xxxx3.wam...)")}}
         </v-card-subtitle>
         <div class="ma-4 mt-1 mb-0 pb-0 pt-0">
             <v-text-field v-model="newFarm" dense clearable v-on:keyup.enter="addFarm()">
-                <v-btn @click = 'addFarm()' text slot="append" color="blue" :disabled="$store.state.top_loading">
+                <v-btn @click = 'addFarm()' text slot="append" color="white" :disabled="$store.state.top_loading">
                     {{$t('ADD')}}
                 </v-btn>
             </v-text-field>                    

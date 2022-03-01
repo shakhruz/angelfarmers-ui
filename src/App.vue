@@ -1,5 +1,6 @@
 <template>
-  <v-app :dark="setTheme">
+  <v-app :dark="setTheme" class="app">
+    <span :class="this.$vuetify.theme.dark ? 'bg_night' : 'bg'"></span>
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -93,14 +94,14 @@
     <v-main>
       <router-view/>
     </v-main>
-    <v-footer padless>
+    <!-- <v-footer padless>
       <v-col
         class="text-center"
         cols="12"
       >
         {{ new Date().getFullYear() }} — <strong>AngelFarmers.com</strong>
       </v-col>
-    </v-footer>    
+    </v-footer>     -->
   </v-app>
 </template>
 
@@ -245,3 +246,34 @@ export default {
   }
 };
 </script>
+<style scoped>
+.app {
+  background: linear-gradient(blue, pink);
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url( '/bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: rgb(36, 32, 32);
+    transform: scale(1.1);
+}
+
+.bg_night {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url( '/bg_night.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: rgb(36, 32, 32);
+    transform: scale(1.1);
+}
+
+
+</style>

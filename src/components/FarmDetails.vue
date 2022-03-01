@@ -2,9 +2,9 @@
     <v-card 
         :id="farm.account_name"
         elevation="2" 
-        outlined :color="this.$vuetify.theme.dark ? 'grey darken-3' : '#f8f6f2'"
+        outlined :color="this.$vuetify.theme.dark ? 'grey darken-3' : 'rgb(255 238 205)'"
         :min-width="$vuetify.breakpoint.mobile ? '360px' : '360px'"
-        :max-width="$vuetify.breakpoint.mobile ? '400px' : '430px'"
+        :max-width="$vuetify.breakpoint.mobile ? '400px' : '530px'"
         v-if="farm!=null && farm.account!=null">
         <v-card-subtitle class="mb-0 pb-0 mt-0 pt-1">
           {{$t("FARM RESOURCES")}}

@@ -2,9 +2,9 @@
     <v-card 
         :id="farm.account_name"
         elevation="2" 
-        outlined :color="$vuetify.theme.dark ? 'grey darken-3' : '#f8f6f2'"
+        outlined :color="$vuetify.theme.dark ? 'grey darken-3' : 'rgb(215 248 255)'"
         :min-width="$vuetify.breakpoint.mobile ? '390px' : '430px'"
-        :max-width="$vuetify.breakpoint.mobile ? '400px' : '430px'"
+        :max-width="$vuetify.breakpoint.mobile ? '400px' : '530px'"
         v-if="farm!=null && farm.account!=null">
         <v-card-title class="mt-0 pt-0 mb-n3 pt-0">
             <v-chip label @click="$clipboard(farm.account_name);" :color="farmBackgroundColor(farm) + ' white--text' "
