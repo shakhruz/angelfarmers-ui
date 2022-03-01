@@ -15,7 +15,7 @@ https://fw.angelfarmers.com - official version for AngelFamers guild members
 4. Easily perform farm management actions like Withdraw and deposit funds, Exchange tokens, Transfer NFTs and tokens, Craft and buy in the game market, Stake for CPU, Exchange crops, Sell NFTs on Atomic and etc.
 5. Overview and manage multiple farms in one window. Calculate total value and estimate earnings on all your farms.
 6. Use non-Wax Cloud Wallet (Anchor and others) accounts for farming
-7. Check-in with your farms status on Telegram via FW.AF bot. Get notifications for all transfers on your accounts and issues
+7. Check-in with your farms status on Telegram via F12+ bot. Get notifications for all transfers on your accounts and issues
 8. Analyze Atomic market for artitrage opportunities
 9. Analyze Alcor orderbooks for trading
 10. Bilingual support in English and Russian
@@ -30,7 +30,7 @@ AWAX or Angel WAX is a savings/dividends/governance token of AngelFarmers Guild.
 [Orderbooks for WAX/AWAX](https://wax.alcor.exchange/trade/awax-awaxdaotoken_wax-eosio.token)
 
 Every guild member who invests 5% of their income from Farmers World into AWAX are eligible to participate in the following:
-1. Propose new features and work done for FW.AF tools
+1. Propose new features and work done for F12+ tools
 2. Vote on new development and community agenda
 3. Receive airdrops with NFTs and tokens earned by community investfund
 4. Receive dividends from community investment fund
@@ -40,7 +40,7 @@ Every guild member who invests 5% of their income from Farmers World into AWAX a
 > Играй как профессионал!
 > Добывай ресурсы и учавствуй в строительстве Метавселенной.
 
-FW.AF - дапп, веб-приложение с открытыми исходными кодами для помощи игрокам FarmersWorld.io в фарминге ресурсов и торговле на Атомик и Алькор рынках.
+F12+ - дапп, веб-приложение с открытыми исходными кодами для помощи игрокам FarmersWorld.io в фарминге ресурсов и торговле на Атомик и Алькор рынках.
 
 https://fw.angelfarmers.com - официальная версия для участников Гильдии AngelFamers.
 
@@ -73,8 +73,8 @@ AWAX это нативный токен на блокчейне WAX. AWAX тор
 
 [Алькор Торговля WAX/AWAX](https://wax.alcor.exchange/trade/awax-awaxdaotoken_wax-eosio.token)
 
-Каждый участник гильдии обязуется инвестировать 5% от дохода полученного с помощью FW.AF инстументария в токен AWAX, что открывает следующие возможности:
-1. Предлагать новый функции и определять направление разработки FW.AF инструментов
+Каждый участник гильдии обязуется инвестировать 5% от дохода полученного с помощью F12+ инстументария в токен AWAX, что открывает следующие возможности:
+1. Предлагать новый функции и определять направление разработки F12+ инструментов
 2. Голосовать по вопросам Гильдии и разработки инструментов
 3. Получать айрдропы с NFTs и токенами, полученными от вложения WAX токенов собранных на продаже AWAX
 4. Получать дивиденды от Инвестиционного Фонда Гильдии
@@ -82,21 +82,23 @@ AWAX это нативный токен на блокчейне WAX. AWAX тор
 
 
 ### Telegram bot
-телеграм бот-команьон связан с FW.AF с помощью базы данных и может следующее:
+https://t.me/angelfarmers_bot 
+
+телеграм бот-команьон связан с F12+ с помощью базы данных и может следующее:
 1. оповещать о транзакциях переводов токенов и NFT на указанных аккаунтах (мониторинг аккантов)
-2. 
+2. показывать текущее состояние ферм
+3. оповещать когда наступит час льготного вывода токенов из игры (5%)
+4. оповещать если авто управление фермой с помощью F12+ перестало откликаться и есть вероятность пропустить действия
 
 Команды:
-add имяфермы - добавляет ферму для мониторинга 
-delete имяфермы - убирает ферму из списка 
-farms - список ферм 
-on - включить режим уведомления 
-off - выключить режим уведомления 
-5% - уведомить когда будет 5% (делает только один раз) 
-status - состояние ваших ферм (там видно работает ли бот и как давно он "отмечался") в режиме 'on' - должны приходить уведомления если бот на ферме не "отмечался" больше 10 минут. Бот (клиент в браузере) когда обслуживает ферму каждые 60 секунд сохраняет состояние в базе, по этому обновлению телеграм бот знает как давно было обслуживание и не выключился ли бот
+- **add имяфермы** - добавляет ферму для мониторинга 
+- **delete имяфермы** - убирает ферму из списка 
+- **farms** - список ферм 
+- **on** - включить режим уведомления 
+- **off** - выключить режим уведомления 
+- **5%** - уведомить когда будет 5% (делает только один раз) 
+- **status** - состояние ваших ферм (там видно работает ли бот и как давно он "отмечался") в режиме -'on' - должны приходить уведомления если бот на ферме не "отмечался" больше 10 минут. Бот (клиент в браузере) когда обслуживает ферму каждые 60 секунд сохраняет состояние в базе, по этому обновлению телеграм бот знает как давно было обслуживание и не выключился ли бот
 ----
-## FW.AF Tools 
-
 ### Use
 #### Project setup
 ```
