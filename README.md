@@ -1,8 +1,9 @@
-## FarmersWorld.io Player Tools by AngelFarmers
-> Play like a professional. 
+## F12+ FarmersWorld.io tools by AngelFarmers
+> Play like professional.
 > Farm resources and participate in building the Metaverse.
+> Join our AngelFarmers Guild, participate in DAO, invest and get dividends
 
-FW.AF is open source dapp that helps FarmersWorld.io players farm resources and trade on Atomic and Alcor.
+F12+ is open source dapp that helps FarmersWorld.io players farm resources and trade on Atomic and Alcor.
 
 https://fw.angelfarmers.com - official version for AngelFamers guild members
 
@@ -24,8 +25,7 @@ We are a gaming league of players and investors, enjoying [FarmwersWorld.io](htt
 Our goal is to support fellow members of the league in playing the game, earning passive income and having most fun with it.
 In order to help best players expand and investors make most of their money we have created a guid token - AWAX.
 
-AWAX or Angel WAX is a savings/dividends/governance token of AngelFarmers Guild.
-AWAX is a native token on WAX blockchain that is traded on Alcor exchange:
+AWAX or Angel WAX is a savings/dividends/governance token of AngelFarmers Guild. AWAX is a native token on WAX blockchain that is traded on Alcor exchange:
 [Swap WAX/AWAX](https://wax.alcor.exchange/swap?output=WAX-eosio.token&input=AWAX-awaxdaotoken)
 [Orderbooks for WAX/AWAX](https://wax.alcor.exchange/trade/awax-awaxdaotoken_wax-eosio.token)
 
@@ -68,7 +68,9 @@ AWAX или Ангел WAX это сберегательный/инвестиц�
 
 AWAX это нативный токен на блокчейне WAX. AWAX торгуется на бирже Алькор и может быть также приобретен на предпродаже через смарт-контракт awaxpresales или через https://fw.angelfarmers.io
 
+
 [Алькор Обмен WAX/AWAX](https://wax.alcor.exchange/swap?output=WAX-eosio.token&input=AWAX-awaxdaotoken)
+
 [Алькор Торговля WAX/AWAX](https://wax.alcor.exchange/trade/awax-awaxdaotoken_wax-eosio.token)
 
 Каждый участник гильдии обязуется инвестировать 5% от дохода полученного с помощью FW.AF инстументария в токен AWAX, что открывает следующие возможности:
@@ -77,6 +79,21 @@ AWAX это нативный токен на блокчейне WAX. AWAX тор
 3. Получать айрдропы с NFTs и токенами, полученными от вложения WAX токенов собранных на продаже AWAX
 4. Получать дивиденды от Инвестиционного Фонда Гильдии
 5. Получать в управление средства из Инвестиционного Фонда Гильдии
+
+
+### Telegram bot
+телеграм бот-команьон связан с FW.AF с помощью базы данных и может следующее:
+1. оповещать о транзакциях переводов токенов и NFT на указанных аккаунтах (мониторинг аккантов)
+2. 
+
+Команды:
+add имяфермы - добавляет ферму для мониторинга 
+delete имяфермы - убирает ферму из списка 
+farms - список ферм 
+on - включить режим уведомления 
+off - выключить режим уведомления 
+5% - уведомить когда будет 5% (делает только один раз) 
+status - состояние ваших ферм (там видно работает ли бот и как давно он "отмечался") в режиме 'on' - должны приходить уведомления если бот на ферме не "отмечался" больше 10 минут. Бот (клиент в браузере) когда обслуживает ферму каждые 60 секунд сохраняет состояние в базе, по этому обновлению телеграм бот знает как давно было обслуживание и не выключился ли бот
 ----
 ## FW.AF Tools 
 
