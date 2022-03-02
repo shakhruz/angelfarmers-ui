@@ -20,13 +20,18 @@
                 </v-card-subtitle>
                 <v-data-table
                     :headers="headersAllFarms"
-                    :items="all_farms"
-                    item-key="account_name" sort-by="profit_usd" sort-desc
+                    :items="farmsWithIndex"
+                    item-key="account_name" 
                     class="elevation-1" dense :items-per-page="50"
                 >
+                    <template v-slot:item.num="{ item }">
+                        <strong>
+                            {{item.index}}
+                        </strong>
+                    </template>
                     <template v-slot:item.account_name="{ item }">
                         <strong>
-                            <a @click.prevent="showLogs(item.account_name)">
+                            <a @click.prevent="addFarm(item.account_name)">
                                 {{item.account_name}}
                             </a>
                         </strong>
@@ -166,18 +171,35 @@ export default {
                             if (item.income.milk) this.total_income.milk += item.income.milk;
                         } 
                     })
-                    this.all_farms = farms;
+                    this.all_farms = farms.sort((a,b)=> b.profit_usd - a.profit_usd);
                 });
             } catch (error) {
                 console.log("ОШИБКА при получении списка всех ферм :" + error);
             }  
+        },
+        async addFarm(account_name) {
+            const res = await this.$dialog.confirm({
+                text: this.$t("Add") + " " + account_name + this.$t(" farm to your list?"),
+                title: this.$t('Confirmation'),
+                actions: {
+                    false: this.$t('No'),
+                    true: this.$t('Yes')
+                },
+            });
+            if (res) {
+                this.$store.dispatch("addFarm", account_name);            
+            }
         }
     },
     mounted() {
         this.updateAllFarmsList();
     },
     computed: {
-    },    
+        farmsWithIndex: function () {
+            return this.all_farms.map(
+                (items, index) => ({...items,index: index + 1}))
+        }
+    },
 };
 </script>
 
