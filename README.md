@@ -5,6 +5,8 @@
 > Farm resources and participate in building the Metaverse.
 > Join our AngelFarmers Guild, participate in DAO, invest and get dividends
 
+![Снимок экрана 2022-03-02 в 21 02 57](https://user-images.githubusercontent.com/6615/156410626-00a41166-04fe-4112-987d-6a863e71dfc3.png)
+
 F12+ is open source dapp that helps FarmersWorld.io players farm resources and trade on Atomic and Alcor.
 
 https://fw.angelfarmers.com - official version for AngelFamers guild members
@@ -71,4 +73,3 @@ export const FB_messagingSenderId="..."
 export const FB_appId="..."
 export const FB_measurementId="..."
 ```
-
