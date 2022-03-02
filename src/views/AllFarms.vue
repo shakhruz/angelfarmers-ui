@@ -14,6 +14,7 @@
                     <strong>{{all_farms.length}}</strong> |
                     {{$t("TOTAL BALANCE")}}: {{ formatAsset(total_balance_wax) }}￦ &nbsp;
                     <strong>(${{ formatAsset(total_balance_usd) }})</strong> &nbsp;
+                    {{$t("TOTAL AWAX BALANCE")}}: <strong>{{ formatAsset(total_awax_balance) }}₳</strong>&nbsp;
                     <!-- (<strong>${{ formatAsset(-total_balance_wax * $store.state.prices.wax) }}</strong>) &nbsp;|&nbsp; -->
                     {{$t("TOTAL DAILY PROFIT")}}: {{ formatAsset(total_profit_wax )}}￦ 
                     ($<strong>{{ formatAsset(total_profit_usd)}}</strong>)
@@ -61,7 +62,7 @@
                     </template>
                     <template v-slot:item.profit_usd="{ item }">
                         <span v-if="item.profit_usd>0">
-                            ${{ formatAsset(item.profit_usd) }}
+                            <strong>${{ formatAsset(item.profit_usd) }}</strong>
                         </span>
                     </template>
                     <template v-slot:item.total_wax="{ item }">
@@ -75,8 +76,13 @@
                             <FarmIncome :income="item.income"/>
                         </div>                    
                     </template>   
-                    <template v-slot:item.balance_awax="{ item }">
+                    <template v-slot:item.awax_balance="{ item }">
                         <span v-if="item.awax_balance">
+                            {{ formatAsset(item.awax_balance) }}₳
+                        </span>                    
+                    </template>   
+                    <template v-slot:item.donate="{ item }">
+                        <span v-if="item.donate">
                             {{ formatAsset(item.awax_balance) }}￦
                         </span>                    
                     </template>   
@@ -120,6 +126,7 @@ export default {
             total_balance_usd: 0,
             total_profit_wax: 0,
             total_profit_usd: 0,
+            total_awax_balance: 0,
             total_income: {wood:0, food:0, gold:0, barley:0, eggs:0, milk:0, corn:0},
             headersAllFarms: [
                 { text: '', value: 'num', width: "10px" },
@@ -128,6 +135,8 @@ export default {
                 { text: this.$t('Value ￦'), value: 'total_wax', align: 'end', width: "100px" },
                 { text: this.$t('Profit'), value: 'profit_wax', align: 'end', width: "100px" },
                 { text: this.$t('Profit USD'), value: 'profit_usd', align: 'end', width: "100px"},
+                { text: this.$t('AWAX Balance'), value: 'awax_balance', align: 'end', width: "100px"},
+                { text: this.$t('Donate'), value: 'donate', align: 'end', width: "100px"},
                 // { text: this.$t('Food'), value: 'food', align: 'end', width: "120px" },
                 // { text: this.$t('Income'), value: 'income' },
                 // { text: this.$t('Angel Balance'), value: 'balance_awax' },
@@ -148,6 +157,7 @@ export default {
             this.total_profit_wax = 0;
             this.total_profit_usd = 0;
             this.total_balance_wax = 0;
+            this.total_awax_balance = 0;
             let num = 1;
             try {
                 db.collection('farm_state').get().then(snapshot => {
@@ -160,6 +170,7 @@ export default {
                         this.total_balance_usd += item.total_usd;
                         this.total_profit_wax += item.profit_wax;
                         this.total_profit_usd += item.profit_usd;
+                        this.total_awax_balance += item.awax_balance;
 
                         if (item.income) {
                             if (item.income.wood) this.total_income.wood += item.income.wood;

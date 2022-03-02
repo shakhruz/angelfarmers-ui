@@ -558,7 +558,8 @@ export default new Vuex.Store({
             profit_usd: ff.profit_wax * ff.prices.wax,
             balance_wax: balance_wax,
             total_income_wax: total_wax,
-            donate: donate
+            donate: donate, 
+            awax_balance: ff.awax_balance,        
           }
           this.fb_updateFarmState(state);      
         }

@@ -50,7 +50,8 @@ Vue.mixin({
                     profit_usd: farm.profit_wax * farm.prices.wax,
                     balance_wax: angel_balance.balance_wax,
                     total_income_wax: angel_balance.total_wax,
-                    donate: angel_balance.donate
+                    donate: angel_balance.donate,
+                    awax_balance: farm.awax_balance,
                 }
                 await this.fb_updateFarmState(state);
             }
