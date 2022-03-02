@@ -1,8 +1,8 @@
 <template>
-    <v-card elevation="2" outlined 
+    <v-card elevation="2" 
         :min-width="$vuetify.breakpoint.mobile ? '380px' : '380px'"
         :max-width="$vuetify.breakpoint.mobile ? '400px' : '550px'"
-    class="justify-center" 
+    class="justify-center" raised rounded="lg"
     :color="this.$vuetify.theme.dark ? 'grey darken-3' : 'teal darken-1 white--text'">
         <div class="text-h5 text-center align-center pa-1 mx-auto mb-1 pb-1">
             {{$t("Checking Accounts")}}

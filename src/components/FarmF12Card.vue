@@ -1,7 +1,7 @@
 <template>
     <v-card 
         :id="farm.account_name"
-        elevation="2" 
+        elevation="2" raised rounded="lg"
         outlined :color="$vuetify.theme.dark ? 'grey darken-3' : 'rgb(215 248 255)'"
         :min-width="$vuetify.breakpoint.mobile ? '390px' : '430px'"
         :max-width="$vuetify.breakpoint.mobile ? '400px' : '530px'"
