@@ -526,7 +526,7 @@ export default new Vuex.Store({
       setTimeout(() => { dispatch('saveAtomicAssets') }, 10000);
     },
     // Обновим данные по доходу фермы из логов
-    updateFarmIncomeFromLog(context, log) {
+    async updateFarmIncomeFromLog(context, log) {
       context.commit("updateFarmIncomeFromLog", log);
       let found = false; 
       for (let i = 0; i < context.state.farms.length && !found; i++) {
