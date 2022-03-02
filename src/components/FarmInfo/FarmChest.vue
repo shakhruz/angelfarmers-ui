@@ -1,8 +1,8 @@
 <template>
     <span v-if="farm.assets && farm.assets.unique && farm.assets.unique.length > 0">
         <v-divider class="mx-1"></v-divider>
-        <div class="ml-2 mb-1 mt-0 pt-0 pb-0">
-            <v-card-subtitle class="ma-0 pa-0 mt-2 mb-1">
+        <div class="mb-1 mt-0 pt-0 pb-0 mx-2">
+            <v-card-subtitle class="pa-0 mt-2 mb-1 mx-2">
                 <v-chip label small>
                     <strong>{{$t("CHEST")}} :</strong>
                 </v-chip>
@@ -19,7 +19,7 @@
                     </span>
                 </v-chip>
             </v-card-subtitle>
-            <span v-for="asset in farm.assets.unique" :key="asset.id">
+            <span v-for="asset in farm.assets.unique" :key="asset.id" class="mx-2">
                 <ChestItem :farm="farm" :asset="asset"/>
             </span>
         </div>

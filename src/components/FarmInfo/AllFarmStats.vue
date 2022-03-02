@@ -16,7 +16,7 @@
             <v-col>
                 {{$t("DAILY PROFIT")}}: 
             </v-col>
-            <v-col align="end" class="pr-2">
+            <v-col align="end" class="pr-2">                
                 <strong>{{ formatAsset($store.state.total_income_wax) }}￦</strong>
             </v-col>
             <v-col align="end" class="pr-2">
@@ -67,14 +67,14 @@
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_output.food)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_output.food)  + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_output.food) }}
                     </strong>
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_profits.food)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_profits.food) + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_profits.food) }}
                     </strong>
@@ -94,14 +94,14 @@
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_output.wood)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_output.wood) + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_output.wood) }}                        
                     </strong>
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_profits.wood)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_profits.wood) + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_profits.wood) }}                        
                     </strong>
@@ -121,14 +121,14 @@
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_output.gold)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_output.gold) + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_output.gold) }}                        
                     </strong>
                 </v-chip>
             </v-col>
             <v-col>
-                <v-chip label small :class="profitColor($store.state.daily_profits.gold)" outlined>
+                <v-chip label small :class="profitColor($store.state.daily_profits.gold) + ' white--text'" outlined>
                     <strong>
                         {{ formatAssetPrice($store.state.daily_profits.gold) }}                        
                     </strong>
@@ -242,7 +242,7 @@ export default {
   methods: {
       profitColor(profit) {
           if (profit==0) return '';
-          return profit > 0 ? 'green' : 'red';
+          return profit > 0 ? 'green white--text' : 'red white--text';
       },
   }    
 }

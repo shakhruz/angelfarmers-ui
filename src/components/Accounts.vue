@@ -29,7 +29,7 @@
             </span>
         </div>
         <v-divider></v-divider>
-        <v-card-actions class="mt-0 mb-0 pt-1 pb-1">
+        <v-card-actions class="mt-0 mb-0 pt-1 pb-1 mx-1">
             <v-btn @click = '$store.state.pause_all=false' v-if="$store.state.pause_all" color="success">
                 <v-icon>mdi-play</v-icon>{{$t("Auto")}}
             </v-btn>                      
