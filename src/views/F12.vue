@@ -5,6 +5,9 @@
       <v-col cols="auto">
         <Accounts/>
       </v-col>
+      <v-col cols="auto">
+        <TopFarms />
+      </v-col>
     </v-row>
     <v-row justify="center">
         <v-col cols="auto">
@@ -40,6 +43,7 @@ import FarmF12Card from "@/components/FarmF12Card.vue";
 import FarmDetails from "@/components/FarmDetails.vue";
 import FarmManagerCard from "@/components/FarmManagerCard.vue";
 import Accounts from "@/components/Accounts.vue";
+import TopFarms from "@/components/TopFarms.vue";
 import Prices from '@/components/Prices.vue';
 
 export default {
@@ -53,7 +57,7 @@ export default {
   methods: {  
   },
   components: {
-    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard
+    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard, TopFarms
   },
   computed: {
   }  
