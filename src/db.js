@@ -16,6 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const db = firebase.initializeApp(firebaseConfig).firestore()
+const farm_state_db = db.collection('farm_state');
 
 const { Timestamp, GeoPoint } = firebase.firestore
 export { Timestamp, GeoPoint }
@@ -85,4 +86,17 @@ export async function loadFarmIncome(account_name) {
     console.log("+ " + account_name + " farmIncome: " + JSON.stringify(income));
 
     return income;
+}
+
+// Добавить запись по состоянию фермы
+export async function fb_updateFarmState(farmState) {
+    // console.log("+ update farm state in fb " + farmState.account_name);
+    try {  
+        await farm_state_db.doc(farmState.account_name).set(farmState);
+        // console.log("+ успешно обновил статус фермы " + farmState.account_name);
+        return true;
+    } catch (error) {
+        console.log("ОШИБКА: Не смог добавить state. ОШИБКА: " + error);
+        return false;    
+    }     
 }

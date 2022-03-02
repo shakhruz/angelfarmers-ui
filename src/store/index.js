@@ -561,7 +561,7 @@ export default new Vuex.Store({
             donate: donate, 
             awax_balance: ff.awax_balance,        
           }
-          await this.fb_updateFarmState(state);      
+          await db.fb_updateFarmState(state);      
         }
       }
     }
