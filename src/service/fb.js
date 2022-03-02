@@ -1,6 +1,6 @@
-const {db} = require('@/db');
+const {db, fb_updateFarmState} = require('@/db');
 const actions_db = db.collection('actions');
-const farm_state_db = db.collection('farm_state');
+// const farm_state_db = db.collection('farm_state');
 const donations_db = db.collection('donations');
 
 import Vue from "vue";
@@ -53,23 +53,23 @@ Vue.mixin({
                     donate: angel_balance.donate,
                     awax_balance: farm.awax_balance,
                 }
-                await this.fb_updateFarmState(state);
+                await fb_updateFarmState(state);
             }
         }
     },
 
     // Добавить запись по состоянию фермы
-    async fb_updateFarmState(farmState) {
-        // console.log("+ update farm state in fb " + farmState.account_name);
-        try {  
-            await farm_state_db.doc(farmState.account_name).set(farmState);
-            // console.log("+ успешно обновил статус фермы " + farmState.account_name);
-            return true;
-        } catch (error) {
-            console.log("ОШИБКА: Не смог добавить state. ОШИБКА: " + error);
-            return false;    
-        }     
-    },    
+    // async fb_updateFarmState(farmState) {
+    //     // console.log("+ update farm state in fb " + farmState.account_name);
+    //     try {  
+    //         await farm_state_db.doc(farmState.account_name).set(farmState);
+    //         // console.log("+ успешно обновил статус фермы " + farmState.account_name);
+    //         return true;
+    //     } catch (error) {
+    //         console.log("ОШИБКА: Не смог добавить state. ОШИБКА: " + error);
+    //         return false;    
+    //     }     
+    // },    
 
     // Добавить платеж
     async fb_addDonation(account_name, amount) {
