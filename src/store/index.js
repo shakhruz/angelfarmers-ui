@@ -5,7 +5,7 @@ import * as atomic from "./modules/atomic";
 import ls from 'localstorage-slim';
 ls.config.encrypt = true;
 
-const { db, calcFarmIncome, loadFarmIncome } = require('@/db');
+const { db, calcFarmIncome, loadFarmIncome, fb_updateFarmState } = require('@/db');
 
 import i18n from '@/i18n';
 
@@ -561,7 +561,7 @@ export default new Vuex.Store({
             donate: donate, 
             awax_balance: ff.awax_balance,        
           }
-          await db.fb_updateFarmState(state);      
+          await fb_updateFarmState(state);      
         }
       }
     }
