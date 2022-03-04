@@ -1,8 +1,13 @@
 <template>
     <v-dialog transition="dialog-bottom-transition" max-width="450">
         <template v-slot:activator="{on,attrs}">
-            <v-btn x-small text outlined class="orange white--text" v-bind="attrs" v-on="on">
-                {{$t('BUY AWAX')}}
+            <v-btn small text outlined class="blue white--text" v-bind="attrs" v-on="on">
+                {{$t('BUY')}}
+            </v-btn>
+            &nbsp;&nbsp;
+            <v-btn small text outlined class="blue white--text" v-bind="attrs" v-on="on">
+                AWAX: {{formatAsset( farm.awax_balance )}}₳
+                <!-- {{$t('BUY AWAX')}} -->
             </v-btn>
         </template>
         <template v-slot:default="dialog">

@@ -2,7 +2,7 @@
     <v-dialog transition="dialog-bottom-transition" max-width="350">
         <template v-slot:activator="{on,attrs}">
             <v-chip small label class="amber darken-4 white--text" v-bind="attrs" v-on="on">
-                {{ formatAsset(farm.account.wax_staked) }}￦
+                CPU: {{ formatAsset(farm.account.wax_staked) }}￦
             </v-chip>
             <!-- <v-btn icon  v-bind="attrs" v-on="on">
                 <v-icon>mdi-circle-multiple-outline</v-icon>

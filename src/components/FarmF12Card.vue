@@ -7,23 +7,24 @@
         :max-width="$vuetify.breakpoint.mobile ? '400px' : '530px'"
         v-if="farm!=null && farm.account!=null">
         <v-card-title class="mt-0 pt-0 mb-n3 pt-0">
-            <v-chip label @click="$clipboard(farm.account_name);" :color="farmBackgroundColor(farm) + ' white--text' "
-                close @click:close="deleteFarmDialog(farm.account_name)">
-                <span class="text-h6">
-                    {{ farm.account_name }}
-                </span>
-            </v-chip>
+            <div class="mt-n10">
+                <v-chip label @click="$clipboard(farm.account_name);" :color="farmBackgroundColor(farm) + ' white--text' "
+                    close @click:close="deleteFarmDialog(farm.account_name)">
+                    <span class="text-h6">
+                        {{ farm.account_name }}
+                    </span>
+                </v-chip>
+            </div>
             <div class="ml-6 mb-0 pt-0">
                 <small>{{$t("Balance")}}</small><br/>
                 <v-chip label large class="amber darken-4 white--text pa-2 text-center">
                     <span>
                         {{ formatAsset(farm.account.wax_balance) }}￦<br/>
-                        <small>{{formatAsset( farm.awax_balance )}}₳</small>
+                        <!-- <small>{{formatAsset( farm.awax_balance )}}₳</small> -->
                     </span>
                 </v-chip>
             </div>
             <div class="ml-3 mb-0 pt-0">
-                <small>{{$t("Staking")}}</small><br/>
                 <span v-if="farm.managed">
                     <FarmCPUButton :farm="farm"  /><br/>
                     <BuyAwaxButton :farm="farm" />
