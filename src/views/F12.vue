@@ -14,12 +14,14 @@
           <FarmF12Card :farm="$store.state.farms[$store.state.selectedFarmIndex]" :index="$store.state.selectedFarmIndex" />
         </v-col>
         <v-col cols="auto">
-          <FarmDetails :farm="$store.state.farms[$store.state.selectedFarmIndex]" :index="$store.state.selectedFarmIndex"/>
+          <Transition name="bounce">
+            <FarmManagerCard :farm="$store.state.farms[$store.state.selectedFarmIndex]" 
+                    :index="$store.state.selectedFarmIndex" 
+                    v-if="$store.state.farms[$store.state.selectedFarmIndex] && !$store.state.farms[$store.state.selectedFarmIndex].settings.hide" />
+          </Transition>
         </v-col>
         <v-col cols="auto">
-          <FarmManagerCard :farm="$store.state.farms[$store.state.selectedFarmIndex]" 
-                  :index="$store.state.selectedFarmIndex" 
-                  v-if="$store.state.farms[$store.state.selectedFarmIndex] && !$store.state.farms[$store.state.selectedFarmIndex].settings.hide" />
+          <FarmDetails :farm="$store.state.farms[$store.state.selectedFarmIndex]" :index="$store.state.selectedFarmIndex"/>
         </v-col>
     </v-row>
     <v-row v-for="(ff, index) in $store.state.farms" :key="ff.account_name" justify="center">
@@ -27,12 +29,14 @@
           <FarmF12Card :farm="ff" v-if="index!=$store.state.selectedFarmIndex" :index="index" />
       </v-col>
       <v-col cols="auto">
-          <FarmDetails :farm="ff" v-if="index!=$store.state.selectedFarmIndex" :index="index" />
-      </v-col>
-      <v-col cols="auto">
+        <Transition name="bounce">
           <FarmManagerCard :farm="ff" 
               v-if="index!=$store.state.selectedFarmIndex && !ff.settings.hide" 
               :index="index" />
+        </Transition>
+      </v-col>
+      <v-col cols="auto">
+          <FarmDetails :farm="ff" v-if="index!=$store.state.selectedFarmIndex" :index="index" />
       </v-col>
     </v-row>
   </v-container>
@@ -63,3 +67,24 @@ export default {
   }  
 };
 </script>
+
+<style scoped>
+/* BOUNCE ANIMATION*/
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
