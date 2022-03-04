@@ -31,7 +31,7 @@
       <v-col cols="auto">
         <Transition name="bounce">
           <FarmManagerCard :farm="ff" 
-              v-if="index!=$store.state.selectedFarmIndex && !ff.settings.hide" 
+              v-if="index!=$store.state.selectedFarmIndex && !$store.state.farms[index].settings.hide" 
               :index="index" />
         </Transition>
       </v-col>
