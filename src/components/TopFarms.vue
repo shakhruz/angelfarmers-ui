@@ -6,7 +6,8 @@
                     :min-width="$vuetify.breakpoint.mobile ? '380px' : '420px'"
                     :max-width="$vuetify.breakpoint.mobile ? '380px' : '420px'"
                     class="justify-center" raised rounded="lg"
-                    :color="this.$vuetify.theme.dark ? 'grey darken-3' : 'teal darken-1 white--text'">
+                    :color="this.$vuetify.theme.dark ? 'grey darken-3' : 'teal darken-1 white--text'"
+                    href="https://awax.cc" target="_blank">
                 <v-card-subtitle class="white--text blue darken-1">
                     <strong>{{$t("AWAX PRESALE")}}</strong>&nbsp;&nbsp;
                     <small>1 AWAX = 1 WAX</small>
