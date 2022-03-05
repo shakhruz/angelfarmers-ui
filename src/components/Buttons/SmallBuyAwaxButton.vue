@@ -1,14 +1,13 @@
 <template>
     <v-dialog transition="dialog-bottom-transition" max-width="450">
         <template v-slot:activator="{on,attrs}">
-            <!-- <v-btn x-small text outlined class="blue white--text" v-bind="attrs" v-on="on">
-                {{$t('BUY')}}
+            <v-btn x-small text outlined class="blue white--text" v-bind="attrs" v-on="on">
+                {{$t('BUY')}}&nbsp;AWAX
             </v-btn>
-            &nbsp;&nbsp; -->
-            <v-btn small text outlined class="blue white--text" v-bind="attrs" v-on="on">
+            &nbsp;&nbsp;
+            <!-- <v-btn small text outlined class="blue white--text" v-bind="attrs" v-on="on">
                 AWAX: {{formatAsset( farm.awax_balance )}}₳
-                <!-- {{$t('BUY AWAX')}} -->
-            </v-btn>
+            </v-btn> -->
         </template>
         <template v-slot:default="dialog">
             <v-card>
@@ -36,7 +35,7 @@
 import BuyAwaxDialog from "@/components/Dialogs/BuyAwaxDialog.vue";
 
 export default {
-  name: "BuyAwaxButton",
+  name: "SmallBuyAwaxButton",
   props: ["farm"],
   async mounted() {
   },

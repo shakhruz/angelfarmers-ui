@@ -170,7 +170,9 @@
                 {{$t('Available')}}:
                 <span class="green--text">
                     {{formatAsset( farm.awax_balance )}}₳
-                </span>                
+                </span>          
+                &nbsp;
+                <SmallBuyAwaxButton :farm="farm" />      
             </span>
             <div v-if="farm.income" class="py-0">
                 {{$t('Collected income')}}:
@@ -195,6 +197,7 @@ import FarmDepositButton from "@/components/Buttons/FarmDepositButton.vue";
 import FarmTokensButton from "@/components/Buttons/FarmTokensButton.vue";
 import FarmCPUButton from "@/components/Buttons/FarmCPUButton.vue";
 import BuyAwaxButton from "@/components/Buttons/BuyAwaxButton.vue";
+import SmallBuyAwaxButton from "@/components/Buttons/SmallBuyAwaxButton.vue";
 import FarmIncome from "@/components/FarmInfo/FarmIncome.vue";
 
 export default {
@@ -267,7 +270,7 @@ export default {
   },
   components: {
     FarmStats, FarmChest, FarmMarketButton, FarmCraftButton, FarmDepositButton, FarmTokensButton, 
-    FarmCPUButton, FarmIncome, BuyAwaxButton
+    FarmCPUButton, FarmIncome, BuyAwaxButton, SmallBuyAwaxButton
   },    
 };
 </script>
