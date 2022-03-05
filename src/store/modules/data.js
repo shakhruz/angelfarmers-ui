@@ -125,6 +125,8 @@ export function getAssetInfo(template_id) {
 }
 
 export const endpoints = [
+    "https://chain.wax.io",
+    "https://wax.eosusa.news",
     "https://api.wax.greeneosio.com",
     "https://wax.eu.eosamsterdam.net",
     "https://api.wax.bountyblok.io",
