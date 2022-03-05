@@ -14,10 +14,13 @@
                     <v-btn icon class="white--text" href="https://awax.cc" target="_blank">
                         <v-icon>mdi-help-circle-outline</v-icon>
                     </v-btn>
-                    <v-progress-linear class="mt-1 white--text" height="20" color="yellow" rounded :value="100-awax_left/100000*100">
+                    <v-progress-linear class="mt-1 white--text" height="20" color="amber darken-3" rounded 
+                                        :value="100-awax_left/100000*100">
                         <small>
-                            {{formatAsset(100-awax_left/100000*100)}}%&nbsp;&nbsp;
-                            {{formatAsset(awax_left,0)}} ₳&nbsp;{{$t("left")}}
+                            <strong>
+                                {{formatAsset(100-awax_left/100000*100)}}%&nbsp;&nbsp;
+                                {{formatAsset(awax_left,0)}} ₳&nbsp;{{$t("left")}}
+                            </strong>
                         </small>
                     </v-progress-linear>
                 </v-card-subtitle>                            
