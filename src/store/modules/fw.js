@@ -151,7 +151,7 @@ function calcTotals(game) {
     // Просчитаем общую стоимость всей фермы
     if (game.account) {
         game.total_wax = game.account.wax_balance;
-        game.total_wax += game.account.wax_self_staked;
+        game.total_wax += game.account.wax_staked;
     } else game.total_wax = 0;
     if (game.balance) game.total_wax += game.balance.total_wax;
     if (game.tokens) game.total_wax += game.tokens.total_wax;
@@ -221,6 +221,8 @@ export async function getAccountInfo(account_name) {
     let account = {};
     try {
         const result = await rpc.get_account(account_name);
+
+        // console.log("!!! account: " + JSON.stringify(result));
 
         account.cpu_used = result["cpu_limit"]["used"];
         account.cpu_max = result["cpu_limit"]["max"];
