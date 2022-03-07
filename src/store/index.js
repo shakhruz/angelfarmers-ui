@@ -263,6 +263,9 @@ export default new Vuex.Store({
       if (ls.get("goDark")) {
         context.state.goDark = ls.get("goDark");
       }
+      if (ls.get("pause_all_farms")) {
+        context.state.pause_all = ls.get("pause_all_farms");
+      }
     },
     loadFarms(context) {
       // загрузим сохраненные фермы

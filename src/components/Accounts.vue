@@ -30,10 +30,10 @@
         </div>
         <v-divider></v-divider>
         <v-card-actions class="mt-0 mb-0 pt-1 pb-1 mx-1">
-            <v-btn @click = '$store.state.pause_all=false' v-if="$store.state.pause_all" color="success">
+            <v-btn @click = 'pauseAllFarms(false)' v-if="$store.state.pause_all" color="success">
                 <v-icon>mdi-play</v-icon>{{$t("Auto")}}
             </v-btn>                      
-            <v-btn @click = '$store.state.pause_all=true' v-else>
+            <v-btn @click = 'pauseAllFarms(true)' v-else>
                 <v-icon>mdi-pause</v-icon>{{$t("Manual")}}
             </v-btn>      
             <v-btn @click = "clearAllFarms()" icon>
@@ -64,6 +64,10 @@ export default {
         AllFarmStats, CPUInfo
     },
     methods: {  
+        pauseAllFarms(paused) {
+            this.$store.state.pause_all = paused;
+            localStorage.pause_all_farms = paused;
+        },
         async clearAllFarms() {
             const res = await this.$dialog.confirm({
                 text: `${this.$t('Delete all farms')}  ?`,
