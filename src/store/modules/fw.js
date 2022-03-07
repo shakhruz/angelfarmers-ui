@@ -1,20 +1,21 @@
 import * as alcor from './alcor';
 import * as data from './data';
-
 import i18n from '@/i18n';
-
-const ends = data.endpoints;
+const { JsonRpc } = require('eosjs');
 
 let endpoint_num = 0;
-let endpoint = ends[endpoint_num];
-const { JsonRpc } = require('eosjs');
-let rpc = new JsonRpc(ends[endpoint_num]);
+let endpoint = data.endpoints[endpoint_num];
+if (localStorage.endpoint) {
+    endpoint = localStorage.endpoint;
+}
 
-function changeEndpoint() {
-    endpoint_num = ++endpoint_num >= ends.length ? 0 : endpoint_num;
-    endpoint = ends[endpoint_num];
-    console.log("new endpoint: " + endpoint);
-    rpc = new JsonRpc(endpoint);
+let rpc = new JsonRpc(endpoint);
+
+function changeEndpoint(endpoint) {
+    // endpoint_num = ++endpoint_num >= ends.length ? 0 : endpoint_num;
+    // endpoint = ends[endpoint_num];
+    // console.log("new endpoint: " + endpoint);
+    // rpc = new JsonRpc(endpoint);
 }
 
 // Получим все данные по игре для аккаунта
@@ -95,7 +96,7 @@ export async function getGame(game, prices, atomic_assets, default_settings) {
 } 
 
 // Пересчитаем данные в игре с новыми курсами
-export async function updateGame(game, prices, atomic_assets) {
+export async function updateGame(game, prices, atomic_assets) {    
     // console.log("updateGame " + game.account_name);
 
     // Обновим курсы токенов
