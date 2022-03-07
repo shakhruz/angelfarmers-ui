@@ -12,8 +12,8 @@
             <br/>
             {{$t("(Ex: xxxx1.wam, xxxx2.wam, xxxx3.wam...)")}}
         </v-card-subtitle>
-        <div class="ma-4 mt-1 mb-0 pb-0 pt-0">
-            <v-text-field v-model="newFarm" dense clearable v-on:keyup.enter="addFarm()">
+        <div class="ma-4 mt-1 mb-0 pb-0 pt-0" >
+            <v-text-field class="white--text" v-model="newFarm" dense clearable v-on:keyup.enter="addFarm()">
                 <v-btn @click = 'addFarm()' text slot="append" color="white" :disabled="$store.state.top_loading">
                     {{$t('ADD')}}
                 </v-btn>
@@ -29,23 +29,70 @@
             </span>
         </div>
         <v-divider></v-divider>
-        <v-card-actions class="mt-0 mb-0 pt-1 pb-1 mx-1">
-            <v-btn @click = 'pauseAllFarms(false)' v-if="$store.state.pause_all" color="success">
-                <v-icon>mdi-play</v-icon>{{$t("Auto")}}
-            </v-btn>                      
-            <v-btn @click = 'pauseAllFarms(true)' v-else>
-                <v-icon>mdi-pause</v-icon>{{$t("Manual")}}
-            </v-btn>      
-            <v-btn @click = "clearAllFarms()" icon>
-                <v-icon>mdi-delete</v-icon>
-            </v-btn>
-            <v-spacer></v-spacer>               
-            <v-btn v-if="$store.state.is_checking" icon @click = '$store.dispatch("updateInfo");'>
-                <v-icon>mdi-cached</v-icon>
-            </v-btn>                
-        </v-card-actions>
-        <v-divider></v-divider>
-        <AllFarmStats />
+        <div v-if="$store.state.farms.length==0">
+            <v-card-title>
+                <div class="text--center center--text">
+                    {{$t('Welcome to F12+ by AngelFarmers')}}
+                </div>
+            </v-card-title>
+            <v-card-subtitle>
+                {{$t("suite of tools to help FarmersWorld.io game players")}}
+                <div class="mt-2">
+                    {{$t("F12+ is free and opensource. You can checkout source code")}}
+                    <a href="https://github.com/shakhruz/angelfarmers-ui" class="amber--text" target="_blank">
+                        {{$t("on github")}}
+                    </a>.
+                </div>
+                <div class="mt-2">
+                    {{$t("AngelFarmers is a guild of blockchain games players.")}}
+                </div>
+                <div class="mt-2">
+                    {{$t("Join us on")}}
+                    <a :href="$t('https://t.me/angelfarmers')" class="amber--text" target="_blank">Telegram</a> {{$t("and")}} 
+                    <a href="https://discord.gg/6ZZ6KFUz" class="amber--text" target="_blank">Discord</a>
+                </div>
+                <div class="mt-2">
+                    <strong>{{$t("F12+ features")}}:</strong>
+                    <div>{{$t("1. Calculate current value of your farm assets")}}</div>
+                    <div>{{$t("2. Estimate earnings and ROI")}}</div>
+                    <div>{{$t("3. Automated claiming, repairing, recovering energy, feeding animals and more")}}</div>
+                    <div>{{$t("4. Farm management - withdraw, deposit, exchange, transfer, craft, game market, CPU and more")}}</div>
+                    <div>{{$t("5. Multiple farms in one window. Calculate total value and estimate earnings on all your farms")}}</div>
+                    <div>{{$t("6. Analyze and trade on Atomic market")}}</div>
+                    <div>{{$t("7. Analyze orderbooks and trade on Alcor")}}</div>                    
+                </div>
+                <div class="mt-2">
+                    {{$t("F12+ is free, but to fund development and server please donate your WAX by purchasing AWAX tokens.")}}
+                </div>
+                <div class="mt-2">    
+                    {{$t("AWAX is a dividends and governance token. AWAX holders will benefits from our farming and trading operations")}}.
+                    <br/>
+                    <a href="https://awax.cc" class="amber--text" target="_blank">{{$t("Learn more about AWAX")}}</a>
+                </div>
+
+
+            </v-card-subtitle>
+
+        </div>
+        <div v-if="$store.state.farms.length>0">
+            <v-card-actions class="mt-0 mb-0 pt-1 pb-1 mx-1">
+                <v-btn @click = 'pauseAllFarms(false)' v-if="$store.state.pause_all" color="success">
+                    <v-icon>mdi-play</v-icon>{{$t("Auto")}}
+                </v-btn>                      
+                <v-btn @click = 'pauseAllFarms(true)' v-else>
+                    <v-icon>mdi-pause</v-icon>{{$t("Manual")}}
+                </v-btn>      
+                <v-btn @click = "clearAllFarms()" icon>
+                    <v-icon>mdi-delete</v-icon>
+                </v-btn>
+                <v-spacer></v-spacer>               
+                <v-btn v-if="$store.state.is_checking" icon @click = '$store.dispatch("updateInfo");'>
+                    <v-icon>mdi-cached</v-icon>
+                </v-btn>                
+            </v-card-actions>
+            <v-divider></v-divider>
+            <AllFarmStats />
+        </div>
     </v-card>
 </template>
 

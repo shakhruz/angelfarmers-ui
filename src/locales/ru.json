@@ -456,7 +456,25 @@
   "seed cost": "семена",
   "Gold enough": "Золота хватит",
   "WAX Cloud Login": "WAX Логин",
-  "Anchor Login": "Anchor Логин"
+  "Anchor Login": "Anchor Логин",
+  "Welcome to F12+ by AngelFarmers": "Добро пожаловать на F12+ от АнгелФармеров",
+  "suite of tools to help FarmersWorld.io game players": "набор инструментов для игроков в FarmersWorld.io",
+  "F12+ is free and opensource. You can checkout source code": "F12+ это продукт с открытыми исходными кодами. Исходники",
+  "on github": "на github",
+  "AngelFarmers is a guild of blockchain games players.":"АнгелФармеры это Гильдия игроков в блокчейн игры.",
+  "Join us on": "Присоединяйтесь к нам на",
+  "F12+ features": "F12+ возможности",
+  "1. Calculate current value of your farm assets": "1. Расчет стоимости фермы",
+  "2. Estimate earnings and ROI": "2. Рассчитать доход и ROI",
+  "3. Automated claiming, repairing, recovering energy, feeding animals and more": "3. Авто клейм, починка, восстановление энергии, кормление животных и другие",
+  "4. Farm management - withdraw, deposit, exchange, transfer, craft, game market, CPU and more": "4. Управление фермой - вывод, ввод, обмен, перевод, крафт, маркет, CPU и другие",
+  "5. Multiple farms in one window. Calculate total value and estimate earnings on all your farms": "5. Управление мульти-фермами из одного окна. Расчет общей стоимости и доходности всех ферм",
+  "6. Analyze and trade on Atomic market": "6. Анализ и торговля на Атомик",
+  "7. Analyze orderbooks and trade on Alcor": "7. Анализ стакана и торговля на Alcor",
+  "F12+ is free, but to fund development and server please donate your WAX by purchasing AWAX tokens.": "F12+ бесплатный, но для финансирования разработки вы можете задонатить WAX токены, прибретая за них AWAX токены.",
+  "AWAX is a dividends and governance token. AWAX holders will benefits from our farming and trading operations": "AWAX это дивидендный токен. Держатели AWAX будут получать доход от фарминг и торговых операций Гильдии",
+  "Learn more about AWAX": "Подробнее об AWAX",
+  "https://t.me/angelfarmers": "https://t.me/angelfarmers_news_ru"
 
 
 }

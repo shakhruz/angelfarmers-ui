@@ -83,12 +83,14 @@
         </v-card-subtitle>
         <v-divider class="mx-1"></v-divider> 
         <v-card-actions class="mb-0 pt-0 pb-1 mt-0">
-            <v-btn icon v-if="farm.settings.pause_all_actions" @click = '$store.commit("pauseFarm", {account_name: farm.account_name, paused: false})'>
-                <v-icon>mdi-play</v-icon>
-            </v-btn>        
-            <v-btn icon v-else @click = '$store.commit("pauseFarm", {account_name: farm.account_name, paused: true})'>
-                <v-icon>mdi-pause</v-icon>
-            </v-btn>        
+            <span v-if="farm.managed">
+                <v-btn icon v-if="farm.settings.pause_all_actions" @click = '$store.commit("pauseFarm", {account_name: farm.account_name, paused: false})'>
+                    <v-icon>mdi-play</v-icon>
+                </v-btn>        
+                <v-btn icon v-else @click = '$store.commit("pauseFarm", {account_name: farm.account_name, paused: true})'>
+                    <v-icon>mdi-pause</v-icon>
+                </v-btn>        
+            </span>
             <v-btn icon @click = '$store.dispatch("updateFarm", farm.account_name);checkFarmActions(farm.account_name)'>
                 <v-icon>mdi-cached</v-icon>
             </v-btn>                            
