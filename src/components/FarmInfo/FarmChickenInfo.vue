@@ -24,6 +24,22 @@
                     </small>
                 </v-chip>
             </span>
+            <div class="caption my-1 mx-2">
+                {{$t("ETA")}}: {{ minsFormatted(farm.animals.eta_chicken*60) }}
+                <br/>
+                {{$t("crop")}}:
+                {{formatAsset(farm.animals.total_chicken_output_eggs)}}&nbsp;Eggs
+                &nbsp;
+                {{formatAsset(farm.animals.total_chicken_output_gold)}}<img class="token" src="/fw/FWG2.png"/>
+                &nbsp;
+                ({{formatAsset(farm.animals.total_chicken_output_gold*farm.prices.fwg)}}￦ / 
+                ${{formatAsset(farm.animals.total_chicken_output_gold*farm.prices.fwg*farm.prices.wax)}})
+                <br/>
+                {{$t("expense")}}:{{-farm.animals.total_chicken_expense_barley}}<img class="token" src="/fw/barley_small.png"/>
+                {{farm.animals.total_chicken_expense_gold}}<img class="token" src="/fw/FWG2.png"/>
+                ({{formatAsset(farm.animals.total_chicken_expense_gold*farm.prices.fwg)}}￦ /
+                ${{formatAsset(farm.animals.total_chicken_expense_gold*farm.prices.fwg*farm.prices.wax)}})
+            </div>
         </v-card-text>  
         <v-divider class="mx-1"></v-divider>    
     </div>

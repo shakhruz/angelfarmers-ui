@@ -50,7 +50,7 @@ Vue.mixin({
                     let food = 0;
                     let wood = 0;
                     traces.forEach(trace => {
-                        console.log("looking for rewards and bonuses in: " + JSON.stringify(trace));
+                        // console.log("looking for rewards and bonuses in: " + JSON.stringify(trace));
                         if (trace.act.account=="farmersworld") {
                             if (trace.act.name == "logbonus" && trace.act.data.bonus_rewards) {
                                 bonus = trace.act.data.bonus_rewards.map(b=>this.parseAsset(b));

@@ -446,7 +446,10 @@
   "TOP PROFITS":"TOP PROFITS",
   "TOP AWAX": "TOP AWAX",
   "AWAX PRESALE": "AWAX PRESALE",
-  "left": "left"
+  "left": "left",
+  "crop": "crop",
+  "expense": "expense",
+  "seed cost": "seed cost"
 
 
 }

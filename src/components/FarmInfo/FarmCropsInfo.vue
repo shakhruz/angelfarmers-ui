@@ -51,8 +51,21 @@
             </span>
             <div class="caption my-1 mx-2">
                 {{$t("ETA")}}: {{ minsFormatted(farm.next_crop_time) }}
+                <br/>
+                {{$t("crop")}}:
+                {{formatAsset(farm.crops.balance)}}<img class="token" src="/fw/FWG2.png"/>
                 &nbsp;
-                {{$t("full")}}:{{farm.crops.total_food_for_crops}}<img class="token" src="/fw/FWF2.png"/>
+                ({{formatAsset(farm.crops.crop_balance_wax)}}￦ / 
+                ${{formatAsset(farm.crops.crop_balance_wax*farm.prices.wax)}})
+                &nbsp;
+                {{$t("expense")}}:{{-farm.crops.total_food_for_crops}}<img class="token" src="/fw/FWF2.png"/>
+                ({{formatAsset(farm.crops.total_food_for_crops*farm.prices.fwf)}}￦ /
+                ${{formatAsset(farm.crops.total_food_for_crops*farm.prices.fwf*farm.prices.wax)}})
+                <br/>
+                {{$t("seed cost")}}:
+                {{-formatAsset(farm.crops.seed_cost_gold,0)}}<img class="token" src="/fw/FWG2.png"/>
+                ({{formatAsset(farm.crops.seed_cost_gold*farm.prices.fwg)}}￦ /
+                ${{formatAsset(farm.crops.seed_cost_gold*farm.prices.fwg*farm.prices.wax)}})
             </div>
         </v-card-text>  
     </div>

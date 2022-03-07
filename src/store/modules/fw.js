@@ -649,6 +649,8 @@ export function calcFWCrops(game) {
     game.crops.hourly_feed = 0;
     game.next_crop_time = 0;
     game.crops.daily_output_gold = 0;
+    game.crops.seed_cost_gold = 0;
+
     
     let crop_multiply = 7.5;
     let crop_counter = 0;
@@ -659,6 +661,7 @@ export function calcFWCrops(game) {
     game.crops.list.forEach(async (crop) => {
         let crop_reward = 0;
         let feed_cost = 0;
+        let seed_cost_gold = 0;
 
         let asset_info = (data.assets_info.filter( (f)=>f.template_id == crop["template_id"] ))[0];
         // console.log("crop_template: " + crop["template_id"] + " asset: " + JSON.stringify(asset_info));
@@ -669,14 +672,18 @@ export function calcFWCrops(game) {
             case "Barley Seed":
                 crop_reward = 40;
                 feed_cost = 6;
+                seed_cost_gold = 55;
                 break;
             case "Corn Seed":
                 crop_reward = 60;
                 feed_cost = 9;
+                seed_cost_gold = 82;
                 break;
         }
         game.crops.list[crop_counter].crop_reward = crop_reward;
         game.crops.list[crop_counter].feed_cost = feed_cost;
+        game.crops.list[crop_counter].seed_cost_gold = seed_cost_gold;
+        game.crops.seed_cost_gold += seed_cost_gold;
 
         const crop_result = crop_reward * crop_multiply;
         game.crops.list[crop_counter].crop_result = crop_result;
@@ -764,6 +771,12 @@ export function calcFWAnimals(game, atomic_assets) {
     let daily_expense_barley = 0;
     let daily_output_gold = 0;
     let total_animals_cost = 0;
+    let chicken = [];
+    let total_chicken_output_gold = 0;
+    let total_chicken_expense_barley = 0;
+    let total_chicken_expense_gold = 0;
+    let total_chicken_output_eggs = 0;
+    let eta_chicken = 0;
 
     if (game.animals && game.animals.list) {
         for(var c=0; c<game.animals.list.length; c++) {
@@ -789,6 +802,7 @@ export function calcFWAnimals(game, atomic_assets) {
                 case "298614":
                     daily_expense_barley += 4;
                     game.animals.list[c].daily_expense_barley = 4;
+                    game.animals.list[c].output_eggs = 5.5;
                     game.animals.list[c].output_gold = 5.5 * 280;
                     game.animals.list[c].days_to_crop = 7;  
                     game.animals.list[c].cost = asset_price ? asset_price : 300 * game.prices.fwg;
@@ -819,6 +833,8 @@ export function calcFWAnimals(game, atomic_assets) {
             game.animals.list[c].hours_to_crop = (1 - game.animals.list[c].times_claimed / game.animals.list[c].max_claim) * 
                                                   game.animals.list[c].days_to_crop * 24;
             game.animals.list[c].total_expense_gold = game.animals.list[c].max_claim * 55;                     
+            game.animals.list[c].expense_barley = (game.animals.list[c].max_claim - game.animals.list[c].times_claimed);                     
+            game.animals.list[c].expense_gold = game.animals.list[c].expense_barley * 55;                     
             game.animals.list[c].total_expense_wax = game.animals.list[c].total_expense_gold * game.prices.fwg;
             game.animals.list[c].profit = game.animals.list[c].output_gold * game.prices.fwg - game.animals.list[c].total_expense_wax;
     
@@ -845,6 +861,17 @@ export function calcFWAnimals(game, atomic_assets) {
             } 
 
             total_animals_cost += game.animals.list[c].cost;
+
+            if (asset_info["template_id"] == "298614") {
+                // chicken
+                chicken.push(game.animals.list[c]);
+                total_chicken_expense_barley += game.animals.list[c].expense_barley
+                total_chicken_expense_gold += game.animals.list[c].expense_gold
+                total_chicken_output_gold += game.animals.list[c].output_gold  
+                total_chicken_output_eggs += game.animals.list[c].output_eggs
+                if ((eta_chicken == 0) || (eta_chicken > game.animals.list[c].hours_to_crop)) 
+                    eta_chicken = game.animals.list[c].hours_to_crop;
+            }
     
             if (isNaN(game.next_claim_date) || game.next_claim_date==null || (game.next_claim_date!=null && claim_date < game.next_claim_date)) {
                 game.next_claim_date = claim_date;
@@ -863,6 +890,12 @@ export function calcFWAnimals(game, atomic_assets) {
     game.animals.daily_expense_gold = daily_expense_barley * 55;
     game.animals.daily_output_gold = daily_output_gold;
     game.animals.cost = total_animals_cost;
+
+    game.animals.total_chicken_expense_barley = total_chicken_expense_barley;
+    game.animals.total_chicken_expense_gold = total_chicken_expense_gold;
+    game.animals.total_chicken_output_gold = total_chicken_output_gold;
+    game.animals.total_chicken_output_eggs = total_chicken_output_eggs;
+    game.animals.eta_chicken = eta_chicken;
 
     return game;
 }
