@@ -186,7 +186,7 @@
                     {{formatAsset( farm.awax_balance )}}₳
                 </span>          
                 &nbsp;
-                <SmallBuyAwaxButton :farm="farm" />      
+                <SmallBuyAwaxButton :farm="farm" v-if="farm.managed"/>      
             </span>
             <div v-if="farm.income" class="py-0">
                 {{$t('Collected income')}}:
