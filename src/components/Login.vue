@@ -19,9 +19,14 @@
 
       <v-list-item v-if="!$store.state.logged_in" @click="manual_login()">
         <v-list-item-title>
-          {{$t("Login")}}
+          {{$t("WAX Cloud Login")}}
         </v-list-item-title>
       </v-list-item>
+      <!-- <v-list-item v-if="!$store.state.logged_in" @click="anchor_login()">
+        <v-list-item-title>
+          {{$t("Anchor Login")}}
+        </v-list-item-title>
+      </v-list-item> -->
       <v-list-item  v-if="$store.state.logged_in" @click="manual_logout()">
         <v-list-item-title>
             {{$t("Logout")}}&nbsp;<v-icon>mdi-exit-to-app</v-icon>
@@ -43,6 +48,9 @@ export default {
     },
     manual_login() {
       this.login().then(logged_in => this.followLogin(logged_in));
+    },
+    anchor_login() {
+      this.login_with_anchor().then(logged_in => this.followLogin(logged_in));
     },
     followLogin(logged_in) {
       if (logged_in) {

@@ -151,30 +151,34 @@ Vue.mixin({
         //     userAccount = null;
         //     authority = null;
         // },
-        // async login_with_anchor() {
-        //     try {
-        //         identity = await link.login('FarmWorld Miner')
+        async login_with_anchor() {
+            try {
+                identity = await link.login('F12+ AngelFarmers')
 
-        //         // Save the session within your application for future use
-        //         session = identity.session;
-        //         authority = [session.auth];
-        //         console.log(`Logged in as ${session.auth}`)
+                // Save the session within your application for future use
+                session = identity.session;
+                authority = [session.auth];
+                console.log(`Logged in as ${session.auth}`)
 
-        //         anchor_login = true;
-        //         let str = 'Account: ' + session.auth;
-        //         logged_in = true;
-        //         document.getElementById('loginform').innerHTML = str;
-        //     } catch (e) {
-        //         console.log("error: " + e.message);
-        //         document.getElementById('loginresponse').append(e.message);
-        //     }
-        // },
+                anchor_login = true;
+                // console.log("identity: " + JSON.stringify(session.auth));
+
+                return session.auth.actor.toString().trim();
+                // let str = 'Account: ' + session.auth;
+                // logged_in = true;
+                // document.getElementById('loginform').innerHTML = str;
+            } catch (e) {
+                console.log("error: " + e.message);
+                return false;
+                // document.getElementById('loginresponse').append(e.message);
+            }
+        },
         wax_transact(action, pkey = null, delegate = null) {
             if (delegate) {
                 // подпишем вакс кошельком
                 if (wax && wax.api) {
-                    console.log("wax transact with: " + this.getEndpoint());
-                    console.log(`delegate ${delegate} wax_transact: ` + JSON.stringify(action))
+                    // console.log("wax transact with: " + this.getEndpoint());
+                    // console.log(`delegate ${delegate} wax_transact: ` + JSON.stringify(action))
                     return wax.api.transact({actions: [action]}, {blocksBehind: 3, expireSeconds: 1200});
                 }
                 else {
@@ -187,7 +191,7 @@ Vue.mixin({
                     const signatureProvider = new JsSignatureProvider([pkey]);
                     const api = new Api({ rpc, signatureProvider, });
                     if (api) {
-                        console.log("wax_transact with pkey: " + JSON.stringify(action))
+                        // console.log("wax_transact with pkey: " + JSON.stringify(action))
                         return api.transact({actions: [action]}, {blocksBehind: 3, expireSeconds: 1200});          
                     }
                     else {
@@ -205,8 +209,8 @@ Vue.mixin({
                     } else {
                         // подпишем вакс кошельком
                         if (wax && wax.api) {
-                            console.log("wax transact with: " + this.getEndpoint());
-                            console.log("wax_transact: " + JSON.stringify(action));
+                            // console.log("wax transact with: " + this.getEndpoint());
+                            // console.log("wax_transact: " + JSON.stringify(action));
                             return wax.api.transact({actions: [action]},  {blocksBehind: 3, expireSeconds: 1200});
                         }
                         else {
@@ -243,7 +247,7 @@ Vue.mixin({
                     }
                 }
     
-                console.log("AWAX balance: awaxpresale  " + JSON.stringify(awax_info));
+                // console.log("AWAX balance: awaxpresale  " + JSON.stringify(awax_info));
     
             } catch(e) {
                 console.log("ОШИБКА при получении AWAX баланса аккаунта: " + e.message);
