@@ -76,17 +76,20 @@
         </div>
         <div v-if="$store.state.farms.length>0">
             <v-card-actions class="mt-0 mb-0 pt-1 pb-1 mx-1">
-                <v-btn @click = 'pauseAllFarms(false)' v-if="$store.state.pause_all" color="success">
+                <v-btn @click = 'pauseAllFarms(false)' v-if="$store.state.pause_all" color="success" >
                     <v-icon>mdi-play</v-icon>{{$t("Auto")}}
                 </v-btn>                      
                 <v-btn @click = 'pauseAllFarms(true)' v-else>
                     <v-icon>mdi-pause</v-icon>{{$t("Manual")}}
                 </v-btn>      
-                <v-btn @click = "clearAllFarms()" icon>
+                <v-btn @click = "clearAllFarms()" icon class="white--text">
                     <v-icon>mdi-delete</v-icon>
                 </v-btn>
+                <v-btn @click = "$store.state.showAtomicPanel=true" icon class="white--text">
+                    <v-icon>mdi-atom</v-icon>
+                </v-btn>
                 <v-spacer></v-spacer>               
-                <v-btn v-if="$store.state.is_checking" icon @click = '$store.dispatch("updateInfo");'>
+                <v-btn v-if="$store.state.is_checking" icon @click = '$store.dispatch("updateInfo");' class="white--text">
                     <v-icon>mdi-cached</v-icon>
                 </v-btn>                
             </v-card-actions>

@@ -27,7 +27,7 @@
                 <v-card-title>
                     {{$t("Top Farms")}}
                     <v-spacer></v-spacer>
-                    <v-btn icon @click = 'updateAllFarmsList()'>
+                    <v-btn icon @click = 'updateAllFarmsList()' class="white--text">
                         <v-icon>mdi-cached</v-icon>
                     </v-btn>                      
                 </v-card-title>        

@@ -10,6 +10,11 @@
       </v-col>
     </v-row>
     <v-row justify="center">
+      <v-col cols="auto">
+        <AtomicPanelCards v-if="$store.state.showAtomicPanel" />
+      </v-col>
+    </v-row>
+    <v-row justify="center">
         <v-col cols="auto">
           <FarmF12Card :farm="$store.state.farms[$store.state.selectedFarmIndex]" :index="$store.state.selectedFarmIndex" />
         </v-col>
@@ -49,6 +54,7 @@ import FarmManagerCard from "@/components/FarmManagerCard.vue";
 import Accounts from "@/components/Accounts.vue";
 import TopFarms from "@/components/TopFarms.vue";
 import Prices from '@/components/Prices.vue';
+import AtomicPanelCards from "@/components/AtomicPanelCards.vue";
 
 export default {
   name: "F12",
@@ -61,7 +67,7 @@ export default {
   methods: {  
   },
   components: {
-    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard, TopFarms
+    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard, TopFarms, AtomicPanelCards
   },
   computed: {
   }  
