@@ -66,6 +66,18 @@
                     <v-progress-linear class="mt-1" :color="getEnergyColor(farm)" rounded 
                         :value="farm.balance.energy / farm.balance.max_energy * 100">
                     </v-progress-linear>
+                    <div v-if="farm.tools.daily_expense_gold>0" class="mt-2">
+                        {{$t("Gold enough")}}:
+                        <v-chip label small :color="getGoldMinsColor(farm)">
+                            <strong>
+                            {{ minsFormatted((farm.balance.gold) / 
+                                        (farm.tools.daily_expense_gold / 24 / 60)) }}
+                            </strong>
+                        </v-chip>
+                        <v-progress-linear class="mt-1" :color="getGoldMinsColor(farm)" rounded 
+                            :value="farm.balance.gold / farm.tools.daily_expense_gold * 100">
+                        </v-progress-linear>
+                    </div>
                 </div>  
             </div>
         </v-card-subtitle>
@@ -248,6 +260,12 @@ export default {
       getEnergyColor(f) {
           if (f.balance) {
               return f.balance.energy / f.balance.max_energy > 0.5 ? 'green white--text' : 'red white--text';
+          } 
+          return '';
+      },
+      getGoldMinsColor(f) {
+          if (f.balance) {
+              return f.balance.gold / f.tools.daily_expense_gold > 0.5 ? 'green white--text' : 'red white--text';
           } 
           return '';
       },
