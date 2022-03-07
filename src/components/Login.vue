@@ -22,11 +22,11 @@
           {{$t("WAX Cloud Login")}}
         </v-list-item-title>
       </v-list-item>
-      <!-- <v-list-item v-if="!$store.state.logged_in" @click="anchor_login()">
+      <v-list-item v-if="!$store.state.logged_in" @click="anchor_login()">
         <v-list-item-title>
           {{$t("Anchor Login")}}
         </v-list-item-title>
-      </v-list-item> -->
+      </v-list-item>
       <v-list-item  v-if="$store.state.logged_in" @click="manual_logout()">
         <v-list-item-title>
             {{$t("Logout")}}&nbsp;<v-icon>mdi-exit-to-app</v-icon>
