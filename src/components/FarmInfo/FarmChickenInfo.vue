@@ -25,7 +25,9 @@
                 </v-chip>
             </span>
             <div class="caption my-1 mx-2">
-                {{$t("ETA")}}: {{ minsFormatted(farm.animals.eta_chicken*60) }}
+                <span v-if="farm.animals.eta_chicken && farm.animals.eta_chicken>0">
+                    {{$t("ETA")}}: {{ minsFormatted(farm.animals.eta_chicken*60) }}
+                </span>
                 <br/>
                 {{$t("crop")}}:
                 {{formatAsset(farm.animals.total_chicken_output_eggs)}}&nbsp;Eggs

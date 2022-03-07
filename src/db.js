@@ -83,7 +83,7 @@ export async function loadFarmIncome(account_name) {
         })
     });  
 
-    console.log("+ " + account_name + " farmIncome: " + JSON.stringify(income));
+    // console.log("+ " + account_name + " farmIncome: " + JSON.stringify(income));
 
     return income;
 }
