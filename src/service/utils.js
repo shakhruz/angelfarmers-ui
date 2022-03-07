@@ -42,7 +42,7 @@ Vue.mixin({
             let total_wax = farm.income.wood * farm.prices.fww + farm.income.food*farm.prices.fwf + farm.income.gold*farm.prices.fwg +
             farm.income.barley*farm.prices.fwg*41 + farm.income.corn*farm.prices.fwg*61 + farm.income.eggs*farm.prices.fwg*281 + 
             farm.income.milk*farm.prices.fwg*141;
-            let balance_wax = total_wax*0.05;
+            let balance_wax = total_wax*0.03;
             return {donate: balance_wax - farm.awax_balance, total_wax: total_wax, balance_wax: balance_wax };
         } else {
             return {donate: 0, total_wax:0, balance_wax: 0};
