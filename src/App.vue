@@ -61,7 +61,18 @@
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <TopMenu />        
+        <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+        <v-btn icon :href="$t('https://t.me/angelfarmers')" target="_blank">
+          <v-icon>mdi-send-circle</v-icon>
+        </v-btn>
+        <v-btn icon href="https://discord.gg/6ZZ6KFUz" target="_blank">
+          <v-icon>mdi-discord</v-icon>
+        </v-btn>
+        
+
+        <!-- <TopMenu />         -->
         <v-spacer></v-spacer>
         <span v-if="$store.state.config">
           <span v-if="!$vuetify.breakpoint.mobile">{{$t('Fee')}}:</span>
