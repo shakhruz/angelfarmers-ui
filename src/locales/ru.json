@@ -479,8 +479,16 @@
   "FOODS": "ЕДА",
   "PLANTS": "СЕМЕНА",
   "MEMBERSHIPS": "МЕМБЕРЫ",
-  "AtomicHub Market": "Рынок AtomicHub"
+  "AtomicHub Market": "Рынок AtomicHub",
+  "Price": "Цена",
+  "Seller": "Продавец",
+  "Buyer": "Покупатель",
+  "WAX": "WAX",
+  "FWW": "FWW",
+  "FWF": "FWF",
+  "FWG": "FWG",
 
-
+  "Alcor Market": "Рынок Alcor",
+  "spread": "спрэд"
 
 }

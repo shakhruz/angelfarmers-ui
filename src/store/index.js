@@ -74,7 +74,8 @@ export default new Vuex.Store({
     top_loading: false,
     goDark: false,
     menu_items: [],
-    showAtomicPanel: false
+    showAtomicPanel: false,
+    showAlcorOrderbook: false
   },
   mutations: {
     // Перейти в режим обновления

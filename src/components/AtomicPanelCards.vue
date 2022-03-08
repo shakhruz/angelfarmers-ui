@@ -27,7 +27,7 @@
         :items="assets_by_group"
         :sort-desc="[false, true]"
         dense disable-pagination hide-default-footer
-        class="elevation-1"
+        class="elevation-1 mt-2"
       >
         <template v-slot:item.name="{ item }">
           <strong>
@@ -88,9 +88,9 @@
 
       </v-data-table>
       <v-card-actions>
-        <v-btn class="white--text" icon @click = '$store.dispatch("saveAtomicAssets"); $store.dispatch("updateAtomicAssets")'>
+        <!-- <v-btn class="white--text" icon @click = '$store.dispatch("saveAtomicAssets"); $store.dispatch("updateAtomicAssets")'>
             <v-icon>mdi-cached</v-icon>
-        </v-btn>
+        </v-btn> -->
         <v-spacer></v-spacer>
         <v-btn outlined text class="white--text" @click = 'closeAtomic()'>
             {{$t("Close")}}

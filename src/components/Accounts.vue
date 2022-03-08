@@ -88,6 +88,9 @@
                 <v-btn @click = "$store.state.showAtomicPanel=true" icon class="white--text">
                     <v-icon>mdi-atom</v-icon>
                 </v-btn>
+                <v-btn @click = "$store.state.showAlcorOrderbook=true" icon class="white--text">
+                    <v-icon>mdi-circle-multiple</v-icon>
+                </v-btn>
                 <v-spacer></v-spacer>               
                 <v-btn v-if="$store.state.is_checking" icon @click = '$store.dispatch("updateInfo");' class="white--text">
                     <v-icon>mdi-cached</v-icon>

@@ -11,18 +11,29 @@ let huobipro  = new ccxt.huobipro ()
 
 const alcor_api_url = "https://wax.alcor.exchange/api/markets/"
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-
 // const ends = ["https://api.wax.alohaeos.com", "https://api.waxsweden.org", "https://wax.pink.gg", "https://wax.eosphere.io", "https://api.wax.greeneosio.com", "https://wax.cryptolions.io"];
-const ends = ["https://wax.pink.gg"];
 
-let endpoint = ends[Math.floor(Math.random()*ends.length)];
+// const ends = ["https://wax.pink.gg"];
+// const { JsonRpc } = require('eosjs');
+// let endpoint = ends[Math.floor(Math.random()*ends.length)];
+// let rpc = new JsonRpc(endpoint);
+
+import * as data from '@/store/modules/data';
 const { JsonRpc } = require('eosjs');
+
+let endpoint_num = 0;
+let endpoint = data.endpoints[endpoint_num];
+if (localStorage.endpoint) {
+    endpoint = localStorage.endpoint;
+}
+
 let rpc = new JsonRpc(endpoint);
 
+
 function changeEndpoint() {
-    endpoint = ends[Math.floor(Math.random()*ends.length)];
-    console.log("new endpoint: " + endpoint);
-    rpc = new JsonRpc(endpoint);
+    // endpoint = ends[Math.floor(Math.random()*ends.length)];
+    // console.log("new endpoint: " + endpoint);
+    // rpc = new JsonRpc(endpoint);
 }
 
 Vue.mixin({
@@ -34,14 +45,14 @@ Vue.mixin({
           code: 'alcordexmain',     
           scope: market_id,    
           table: 'buyorder',      
-          limit: 1000,                
+          limit: 100,                
           key_type: 'i128',           
           index_position: 2         
         });          
         return result;
       } catch (error) {
         console.log("ОШИБКА чтения get_buyorders: " + error.message);
-        changeEndpoint();        
+        // changeEndpoint();        
       }
       return false;
     },     
@@ -52,14 +63,14 @@ Vue.mixin({
           code: 'alcordexmain',     
           scope: market_id,    
           table: 'sellorder',      
-          limit: 1000,                
+          limit: 100,                
           key_type: 'i128',           
           index_position: 2         
         });
         return result;      
       } catch (error) {
         console.log("ОШИБКА чтения get_sellorders: " + error.message);
-        changeEndpoint();        
+        // changeEndpoint();        
       }
       return false;
     },     

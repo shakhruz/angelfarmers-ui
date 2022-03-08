@@ -475,7 +475,17 @@
   "FOODS": "FOODS",
   "PLANTS": "PLANTS",
   "MEMBERSHIPS": "MEMBERSHIPS",
-  "AtomicHub Market": "AtomicHub Market"
+  "AtomicHub Market": "AtomicHub Market",
+  "Price": "Price",
+  "Seller": "Seller",
+  "Buyer": "Buyer",
+  "WAX": "WAX",
+  "FWW": "FWW",
+  "FWF": "FWF",
+  "FWG": "FWG",
+  
+  "Alcor Market": "Alcor Market",
+  "spread": "spread"
 
 
 

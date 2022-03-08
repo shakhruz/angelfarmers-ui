@@ -48,7 +48,7 @@
                     :headers="headersAllFarms"
                     :items="farmsWithIndex"
                     item-key="account_name" 
-                    class="elevation-1" dense :items-per-page="10"
+                    class="elevation-1 mt-2" dense :items-per-page="10"
                 >
                     <template v-slot:item.num="{ item }">
                         <strong>

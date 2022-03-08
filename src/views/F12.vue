@@ -13,6 +13,9 @@
       <v-col cols="auto">
         <AtomicPanelCards v-if="$store.state.showAtomicPanel" />
       </v-col>
+      <v-col cols="auto">
+        <AlcorOrderbookCard v-if="$store.state.showAlcorOrderbook" />
+      </v-col>
     </v-row>
     <v-row justify="center">
         <v-col cols="auto">
@@ -55,6 +58,7 @@ import Accounts from "@/components/Accounts.vue";
 import TopFarms from "@/components/TopFarms.vue";
 import Prices from '@/components/Prices.vue';
 import AtomicPanelCards from "@/components/AtomicPanelCards.vue";
+import AlcorOrderbookCard from "@/components/AlcorOrderbookCard.vue";
 
 export default {
   name: "F12",
@@ -67,7 +71,7 @@ export default {
   methods: {  
   },
   components: {
-    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard, TopFarms, AtomicPanelCards
+    FarmF12Card, Accounts, Prices, FarmDetails, FarmManagerCard, TopFarms, AtomicPanelCards, AlcorOrderbookCard
   },
   computed: {
   }  
