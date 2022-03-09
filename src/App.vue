@@ -63,7 +63,7 @@
             <span>
               {{ next_action_mins }}<br/>
               {{$store.state.next_action_account}}<br/>
-              {{$t($store.state.next_action)}}
+              {{$store.state.next_action}}
             </span>
           </v-tooltip> 
           &nbsp;
