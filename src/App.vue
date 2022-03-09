@@ -39,21 +39,33 @@
         <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
           <v-icon>mdi-github</v-icon>
         </v-btn>
+
       </v-card-text>
     </v-navigation-drawer>
     <v-app-bar app color="teal darken-2" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <span v-if="$store.state.total_status">
-            <v-icon color="light-green lighten-4">
-              mdi-check-circle
-            </v-icon>
-          </span>
-          <span v-if="!$store.state.total_status">
-            <v-icon color="red accent-1">
-              mdi-alert-circle
-            </v-icon>
-          </span>
+          <v-tooltip top color="primary" allow-overflow open-on-click max-width="250px">
+            <template v-slot:activator="{ on, attrs }">
+                <span v-bind="attrs" v-on="on">
+                    <span v-if="$store.state.total_status">
+                      <v-icon color="light-green lighten-4">
+                        mdi-check-circle
+                      </v-icon>
+                    </span>
+                    <span v-if="!$store.state.total_status">
+                      <v-icon color="red accent-1">
+                        mdi-alert-circle
+                      </v-icon>
+                    </span>
+                </span>
+            </template>
+            <span>
+              {{ next_action_mins }}<br/>
+              {{$store.state.next_action_account}}<br/>
+              {{$t($store.state.next_action)}}
+            </span>
+          </v-tooltip> 
           &nbsp;
           <Prices v-if="!$vuetify.breakpoint.mobile" />
           <span v-if="$vuetify.breakpoint.mobile && $store.state.userAccount">
@@ -70,8 +82,6 @@
         <v-btn icon href="https://discord.gg/6ZZ6KFUz" target="_blank">
           <v-icon>mdi-discord</v-icon>
         </v-btn>
-        
-
         <!-- <TopMenu />         -->
         <v-spacer></v-spacer>
         <span v-if="$store.state.config">

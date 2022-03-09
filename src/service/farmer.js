@@ -177,7 +177,7 @@ Vue.mixin({
                         }
                     }
                     if (to_plant>0 && game.settings.buy_seeds) {
-                        console.log("Need Barley Seed to plant...");
+                        // console.log("Need Barley Seed to plant...");
 
                         if (game.balance.gold > to_plant*50) {
                             // console.log("We have gold to buy Barley seeds. Will try...");
@@ -256,8 +256,8 @@ Vue.mixin({
             animal_counter++;
 
             if (claim_date < nowTime) {
-                console.log(animal_counter + ". " + animal["name"] + " время кормить! уже кормили " + 
-                        animal["times_claimed"] + " раз");
+                // console.log(animal_counter + ". " + animal["name"] + " время кормить! уже кормили " + 
+                //         animal["times_claimed"] + " раз");
                 
                 // chicken egg
                 if (animal["template_id"]=="298612") {
@@ -278,10 +278,10 @@ Vue.mixin({
                         animal["template_id"] == "298600") && game.settings.feed_cow_with_barley)) {
                         const barley_id = await this.findBarleyAsset(game.account_name, used_barley);
                         if (barley_id=="") {
-                            console.log("Не нашел Barley для кормления животного...");
+                            // console.log("Не нашел Barley для кормления животного...");
                             // this.log_warning("There is no barley to feed animals. Buy some barley please... ", game.account_name);
                         } else {
-                            console.log("Будем кормить " + animal["name"] + " " + animal["asset_id"] + " мешком корма " + barley_id);
+                            // console.log("Будем кормить " + animal["name"] + " " + animal["asset_id"] + " мешком корма " + barley_id);
                             const res = await this.fw_feed_animal(animal["asset_id"], barley_id, game.account_name, pkey, delegate);            
                             if (res.status===true) {
                                 used_barley.push(barley_id);
@@ -300,7 +300,7 @@ Vue.mixin({
                             if (game.settings.feed_with_milk) {
                                 const milk = await this.findMilkAsset(game.account_name);
                                 if (milk=="") {
-                                    console.log("There is no milk to feed baby calf. Buy some milk please... ", game.account_name);
+                                    // console.log("There is no milk to feed baby calf. Buy some milk please... ", game.account_name);
                                     // this.log_warning("There is no barley to feed animals. Buy some barley please... ", game.account_name);
                                 } else {
                                     // console.log("Будем кормить " + animal["name"] + " " + animal["asset_id"] + " мешком корма " + animal_food);
@@ -445,12 +445,12 @@ Vue.mixin({
                         if (farm.daily_expense_food>0) {
                             let food_available = farm.balance.food + farm.tokens.fwf;
                             let food_needed = farm.daily_expense_food/2 - food_available;
-                            console.log(`ферма ${farm.account_name} - нужно на 12 часов: ${farm.daily_expense_food/2}, есть:  ${food_available},  нужно: ${food_needed}`);
+                            // console.log(`ферма ${farm.account_name} - нужно на 12 часов: ${farm.daily_expense_food/2}, есть:  ${food_available},  нужно: ${food_needed}`);
                             if (food_needed>0) {
                                 // если еды не хватает на все, отправим сколько есть...
                                 if (food_needed > game.tokens.fwf && game.tokens.fwf > 0) food_needed = game.tokens.fwf;
                                 if (food_needed>0 && game.tokens.fwf>0) {
-                                    console.log("отправляем " + food_needed + " FWF на плантацию " + farm.account_name);
+                                    // console.log("отправляем " + food_needed + " FWF на плантацию " + farm.account_name);
                                     const result = await this.fw_send_tokens(game.account_name, food_needed, "FWF", farm.account_name, 'loan', pkey, delegate);
                                     if (result.status===true) {
                                         this.log_action(this.$t("Sent") + " " + food_needed + " FWF " + this.$t("from") + " " +
@@ -472,7 +472,7 @@ Vue.mixin({
         
         // ОТПРАВИТЬ СЕМЕНА НА ПЛАНТАЦИИ ПО ПОТРЕБНОСТЯМ
         if (game.settings.send_barley_seeds_to && game.settings.send_barley_seeds_to.trim()!='') {
-            console.log("проверяем нужно ли отправить семена...");
+            // console.log("проверяем нужно ли отправить семена...");
             let sfarms = game.settings.send_barley_seeds_to.split(',');
             if (sfarms && sfarms.length>0) {
                 // console.log("пройдемся по фермам, посмотрим хватает ли им семян: " + sfarms.join());
@@ -484,7 +484,7 @@ Vue.mixin({
                         farm.buildings.list.forEach(async building => {
                             if (building["template_id"] == "298592" && building["slots_used"]<8) {
                                 let barley_in_chest = this.calcAssetsInChest(farm, "298595");
-                                console.log("нашел свободное место для посадки, отправлю семена барли на " + farm.account_name);
+                                // console.log("нашел свободное место для посадки, отправлю семена барли на " + farm.account_name);
                                 let to_send = 8 - building["slots_used"] - barley_in_chest;
                                 if (to_send>0) {
                                     let ids = [];
@@ -495,7 +495,7 @@ Vue.mixin({
                                             to_send--;
                                         }
                                     }
-                                    console.log("нашел семена: " + JSON.stringify(ids));
+                                    // console.log("нашел семена: " + JSON.stringify(ids));
                                     if (ids.length>0) {
                                         // нашли семена на отправку
                                         const result = await this.atomic_transfer_asset(game.account_name, "298595", ids.length, farm.account_name, pkey, delegate);

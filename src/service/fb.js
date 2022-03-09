@@ -45,7 +45,7 @@ Vue.mixin({
                             (farm.daily_expense_food / 24 / 60),
                     total_wax: farm.total_wax,
                     total_usd: farm.total_wax*farm.prices.wax,
-                    income: farm.income,
+                    income: farm.income ? farm.income : {},
                     profit_wax: farm.profit_wax,
                     profit_usd: farm.profit_wax * farm.prices.wax,
                     balance_wax: angel_balance.balance_wax,
