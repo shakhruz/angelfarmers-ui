@@ -29,16 +29,16 @@
         </v-list-item>
       </v-list>    
       <v-select class="mx-2 my-2" dense v-model="selectedEndpoint" :items="endpoints" @change="selectNewEndpoint()" />
-      <v-btn icon @click = 'selectRandomEndpoint()' hint="random endpoint">
-        <v-icon>mdi-shuffle-variant</v-icon>
+      <v-btn @click = 'selectRandomEndpoint()' hint="random endpoint" class="mx-2">
+        <v-icon>mdi-shuffle-variant</v-icon> {{$t("RANDOM NODE")}}
       </v-btn>                            
       <v-card-text>
         {{$t("Telegram Bot")}}
         <a href="https://t.me/angelfarmers_bot" target="_blank">@AngelFarmers_bot</a>
-        v1.0.0
-        <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
+        <!-- v1.0.0 -->
+        <!-- <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
           <v-icon>mdi-github</v-icon>
-        </v-btn>
+        </v-btn> -->
 
       </v-card-text>
     </v-navigation-drawer>

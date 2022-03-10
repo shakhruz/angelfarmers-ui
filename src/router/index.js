@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import F12 from '../views/F12.vue'
+import Avatars from '../views/Avatars.vue'
 import AllFarms from '../views/AllFarms.vue'
 import AllAngelFarmers from '../views/AllAngelFarmers.vue'
 import FarmActions from '../views/FarmActions.vue'
@@ -75,49 +76,11 @@ const routes = [
     name: 'F12',
     component: F12,
   },
-
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
-  // {
-  //   path: '/setup',
-  //   name: 'Setup',
-  //   component: Setup
-  // },
-  // {
-  //   path: '/atomic-craft/:id',
-  //   name: 'AtomicCraft',
-  //   component: AtomicCraft,
-  //   props: true
-  // }, 
-  // {
-  //   path: '/tokens',
-  //   name: 'Tokens',
-  //   component: Tokens
-  // },  
-  // {
-  //   path: '/chest',
-  //   name: 'Chest',
-  //   component: Chest
-  // }, 
-  // {
-  //   path: '/farm/:id/donations',
-  //   name: 'Donations',
-  //   component: Donations,
-  //   props: true
-  // },  
-  // {
-  //   path: '/exchange',
-  //   name: 'Exchange',
-  //   component: Exchange
-  // },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+  {
+    path: '/avatars',
+    name: 'Avatars',
+    component: Avatars,
+  },
 ]
 
 const router = new VueRouter({

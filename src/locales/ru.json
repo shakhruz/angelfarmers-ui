@@ -489,6 +489,15 @@
   "FWG": "FWG",
 
   "Alcor Market": "Рынок Alcor",
-  "spread": "спрэд"
+  "spread": "спрэд",
+  "Mint your own NFTAvatar": "Mint your own NFTAvatar",
+  "Generate": "Generate",
+  "Please confirm minting new NFTAvatar for 0.99 AWAX": "Подтвердите создание нового NFT Аватара за 0.99 AWAX",
+  "Avatar Minter": "Генератор Аватара",
+  "Mint your own NFTAvatar" : "Создайте свой уникальный NFT Аватар",
+  "Successfully minted NFT": "Успешно создал NFT",
+  "AVATARS": "АВАТАРЫ",
+  "RANDOM NODE": "СЛУЧАЙНАЯ НОДА",
+  "MINT NFT": "СОЗДАТЬ NFT"
 
 }

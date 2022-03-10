@@ -485,7 +485,17 @@
   "FWG": "FWG",
   
   "Alcor Market": "Alcor Market",
-  "spread": "spread"
+  "spread": "spread",
+  "Avatar Minter": "Avatar Minter",
+  "Mint your own NFTAvatar": "Mint your own NFTAvatar",
+  "Generate": "Generate",
+  "Please confirm minting new NFTAvatar for 0.99 AWAX": "Please confirm minting new NFTAvatar for 0.99 AWAX",
+  "Avatar Minter": "Avatar Minter",
+  "Mint your own NFTAvatar" : "Mint your own NFTAvatar",
+  "Successfully minted NFT": "Successfully minted NFT",
+  "AVATARS": "AVATARS",
+  "RANDOM NODE": "RANDOM NODE",
+  "MINT NFT": "MINT NFT"
 
 
 

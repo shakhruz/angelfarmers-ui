@@ -13,6 +13,9 @@
     <v-list>
       <v-list-item v-if="$store.state.userAccount">
         <v-list-item-title>
+          <span v-if="$store.state.avatars && $store.state.avatars[0]">
+            <img :src="$store.state.avatars[0].image_url" width="40" height="40" valign="middle"/>
+          </span>
           {{ $store.state.userAccount }}
         </v-list-item-title>
       </v-list-item>
@@ -52,13 +55,20 @@ export default {
     anchor_login() {
       this.login_with_anchor().then(logged_in => this.followLogin(logged_in));
     },
-    followLogin(logged_in) {
+    async followLogin(logged_in) {
       if (logged_in) {
         console.log("logged_in: " + logged_in);
         this.$store.dispatch("login", logged_in);
+        await this.getAvatars(logged_in);
       }
     }
+  },
+  computed: {
+      avatar_link(){
+          return `https://api.multiavatar.com/${this.$store.state.userAccount}.png`
+      }
   }
+
 };
 </script>
 

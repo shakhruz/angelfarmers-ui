@@ -1,5 +1,8 @@
 import Vue from "vue";
 
+import {ExplorerApi, RpcApi} from "atomicassets"
+const api = new ExplorerApi("https://wax.api.atomicassets.io", "atomicassets", {fetch});
+
 import * as data from '@/store/modules/data';
 const { JsonRpc } = require('eosjs');
 
@@ -17,6 +20,9 @@ console.log("⚡️ atomic api rpc endpoint: " + endpoint);
 
 Vue.mixin({
     methods: {     
+        ipfs_image(id) {
+            return `https://ipfs.atomichub.io/ipfs/${id}`;
+        },
         getAssetInfo(template_id) {
             let asset = data.assets_info.filter(a=>a.template_id == template_id);
             return asset && asset[0] ? asset[0] : null;

@@ -12,6 +12,7 @@ import "@/service/colors";
 import "@/service/formats";
 import "@/service/farmerdata";
 import "@/service/fwactions";
+import "@/service/angelactions";
 import "@/service/atomicapi";
 import "@/service/dfuseapi";
 import "@/service/fb";
@@ -23,6 +24,7 @@ import VuetifyDialog from 'vuetify-dialog'
 import 'vuetify-dialog/dist/vuetify-dialog.css'
 import Clipboard from 'v-clipboard'
 import VueAnalytics from 'vue-analytics';
+// import VueIpfs from './plugins/vue-ipfs'
 
 Vue.use(Clipboard);
 Vue.use(VuetifyDialog, {
@@ -35,6 +37,7 @@ import { firestorePlugin } from 'vuefire'
 import i18n from './i18n'
 
 Vue.use(firestorePlugin)
+// Vue.use(VueIpfs)
 
 Vue.config.productionTip = false
 Vue.use(Toast, {});

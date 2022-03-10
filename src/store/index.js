@@ -75,7 +75,8 @@ export default new Vuex.Store({
     goDark: false,
     menu_items: [],
     showAtomicPanel: false,
-    showAlcorOrderbook: false
+    showAlcorOrderbook: false,
+    avatars: [],
   },
   mutations: {
     // Перейти в режим обновления
@@ -198,6 +199,10 @@ export default new Vuex.Store({
         if (!found) console.log("Не смог обновить доходы фермы " + account_name);
       }
     },
+    // Обновим аватары текущего пользователя
+    updateAvatars(state, avatars) {
+      state.avatars = avatars;
+    }
   },
   actions: {
     logout(context) {
@@ -241,24 +246,25 @@ export default new Vuex.Store({
     loadUserMenuItems(context) {
       context.state.menu_items = [
         { title: i18n.t('FARMS'), icon: 'mdi-view-dashboard', link: '/' },
-        { title: i18n.t('ATOMIC PANEL'), icon: 'mdi-atom', link: '/atomic-panel'  },
-        { title: i18n.t('ATOMIC BUYER'), icon: 'mdi-atom', link: '/atomic-buyer'  },
-        { title: i18n.t('ALL FARMS'), icon: 'mdi-format-list-bulleted', link: '/all-farms'  },
-        { title: i18n.t('ALCOR ORDERBOOKS'), icon: 'mdi-swap-horizontal', link: '/alcor-orderbooks'  },
+        // { title: i18n.t('ATOMIC PANEL'), icon: 'mdi-atom', link: '/atomic-panel'  },
+        // { title: i18n.t('ATOMIC BUYER'), icon: 'mdi-atom', link: '/atomic-buyer'  },
+        // { title: i18n.t('ALL FARMS'), icon: 'mdi-format-list-bulleted', link: '/all-farms'  },
+        // { title: i18n.t('ALCOR ORDERBOOKS'), icon: 'mdi-swap-horizontal', link: '/alcor-orderbooks'  },
         // { title: this.$t('SETTINGS'), icon: 'mdi-cog', link: '/setup' },
       ]
       if (context.state.userAccount == "ehcza.wam") {
         // меню для админа
-        // this.menu_items.push(
+        context.state.menu_items.push(
+        { title: i18n.t('AVATARS'), icon: 'mdi-format-list-bulleted', link: '/avatars'  });
         // { title: this.$t('ALL FARMS'), icon: 'mdi-format-list-bulleted', link: '/all-farms'  });
-        context.state.menu_items.push(
-        { title: i18n.t('MY ATOMIC SALES'), icon: 'mdi-atom', link: '/atomic-sales'  });
-        context.state.menu_items.push(
-        { title: i18n.t('MY SALES HISTORY'), icon: 'mdi-atom', link: '/trade-history'  });
-        context.state.menu_items.push(
-        { title: i18n.t('ALCOR TRADER'), icon: 'mdi-swap-horizontal', link: '/alcor-trader'  });
-        context.state.menu_items.push(
-        { title: i18n.t('ALL FARMERS'), icon: 'mdi-format-list-bulleted', link: '/all-farmers'  });
+        // context.state.menu_items.push(
+        // { title: i18n.t('MY ATOMIC SALES'), icon: 'mdi-atom', link: '/atomic-sales'  });
+        // context.state.menu_items.push(
+        // { title: i18n.t('MY SALES HISTORY'), icon: 'mdi-atom', link: '/trade-history'  });
+        // context.state.menu_items.push(
+        // { title: i18n.t('ALCOR TRADER'), icon: 'mdi-swap-horizontal', link: '/alcor-trader'  });
+        // context.state.menu_items.push(
+        // { title: i18n.t('ALL FARMERS'), icon: 'mdi-format-list-bulleted', link: '/all-farmers'  });
       }
     },
     loadSettings(context) {
