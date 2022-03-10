@@ -188,8 +188,10 @@ Vue.mixin({
             } else {
                 if (pkey) {
                     // подпишем приватным ключом
+                    action.authorization[0].permission = "farmer";
                     const signatureProvider = new JsSignatureProvider([pkey]);
                     const api = new Api({ rpc, signatureProvider, });
+                    console.log("sig: ", signatureProvider);
                     if (api) {
                         // console.log("wax_transact with pkey: " + JSON.stringify(action))
                         return api.transact({actions: [action]}, {blocksBehind: 3, expireSeconds: 1200});          
