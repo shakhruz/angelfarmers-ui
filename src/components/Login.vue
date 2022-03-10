@@ -10,13 +10,23 @@
       </v-btn>
     </template>
 
-    <v-list>
+    <v-list width="200px">
       <v-list-item v-if="$store.state.userAccount">
         <v-list-item-title>
           <span v-if="$store.state.avatars && $store.state.avatars[0]">
-            <img :src="$store.state.avatars[0].image_url" width="40" height="40" valign="middle"/>
+            <img :src="$store.state.avatars[0].image_url" width="40" height="40" 
+                  valign="top" align="left" hspace="10"/>
+            <span class="ml-4">
+              {{ $store.state.avatars[0].name }}
+              <br/>
+            </span >
+            <span class="ml-4 mt-1">
+              {{ $store.state.userAccount }}
+            </span>
           </span>
-          {{ $store.state.userAccount }}
+          <span v-else>
+            {{ $store.state.userAccount }}
+          </span>
         </v-list-item-title>
       </v-list-item>
 
