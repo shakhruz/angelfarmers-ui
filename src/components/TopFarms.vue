@@ -34,8 +34,10 @@
                 <v-card-subtitle class="white--text">
                     {{$t("Total Farms")}}:
                     <strong>{{all_farms.length}}</strong><br/>
-                    {{$t("TOTAL BALANCE")}}: {{ formatAsset(total_balance_wax) }}￦
-                    <strong>(${{ formatAsset(total_balance_usd) }})</strong><br/>
+                    <span v-if="total_balance_wax>0">
+                        {{$t("TOTAL BALANCE")}}: {{ formatAsset(total_balance_wax) }}￦
+                        <strong>(${{ formatAsset(total_balance_usd) }})</strong><br/>
+                    </span>
                     <!-- {{$t("TOTAL AWAX BALANCE")}}: <strong>{{ formatAsset(total_awax_balance) }}₳</strong><br/> -->
                 </v-card-subtitle>
                 <v-tabs>
