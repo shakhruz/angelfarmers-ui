@@ -73,3 +73,7 @@ export const FB_messagingSenderId="..."
 export const FB_appId="..."
 export const FB_measurementId="..."
 ```
+
+## Contributions
+
+Chineese translation by cnscdh!
