@@ -21,6 +21,11 @@
           <img class="token" src="/ru.svg"/> РУССКИЙ
         </v-list-item-title>
       </v-list-item>
+      <v-list-item @click="changeLanguage('cn');">
+        <v-list-item-title>
+          <img class="token" src="/cn.svg"/> 中文
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
