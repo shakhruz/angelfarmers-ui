@@ -6,7 +6,7 @@
         <Accounts/>
       </v-col>
       <v-col cols="auto">
-        <TopFarms />
+        <TopFarms v-if="$store.state.showTopFarms"/>
       </v-col>
     </v-row>
     <v-row justify="center">

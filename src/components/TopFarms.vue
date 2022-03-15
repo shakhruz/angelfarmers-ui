@@ -75,6 +75,12 @@
                         </span>                    
                     </template>   
                 </v-data-table>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn outlined text class="white--text" @click = 'closeTopFarms()'>
+                        {{$t("Close")}}
+                    </v-btn>
+                </v-card-actions>
             </v-card>
         </v-col>        
     </v-row>
@@ -105,6 +111,9 @@ export default {
     components: {
     },
     methods: {  
+        closeTopFarms() {
+            this.$store.state.showTopFarms = false;
+        },
         // Получить списоу всех ферм и их состояний, просчитать общий итог
         updateAllFarmsList(sort_by) {
             this.sort_by = sort_by;
