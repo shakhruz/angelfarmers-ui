@@ -58,6 +58,7 @@ export default new Vuex.Store({
       send_food_to: '',       // отправлять еду на адреса
       send_barley_seeds_to: '', // отправлять семена барли
       hide: false, // прятать диалог с настройками
+      check_cpu_level: true,
     },
     updatingPrices: false,
     updatingInfo: false,

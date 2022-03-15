@@ -114,6 +114,9 @@
                      :label="$t('Wear buildings when possible')" class="ma-0 pa-0"></v-checkbox>
                 </v-col>
                 <v-col  class="mt-0 pt-0 mb-0 pb-0">
+                    <v-checkbox dense @change="updateFarm()" v-model="farm.settings.check_cpu_level" 
+                     :disabled="!farm.managed"
+                     :label="$t('Check CPU Level')" class="ma-0 pa-0"></v-checkbox>
                 </v-col>
             </v-row>
 

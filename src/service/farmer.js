@@ -58,7 +58,7 @@ Vue.mixin({
         }
 
         // проверим не перегрелся ли CPU 
-        if (game.account.cpu_used_percent>=100) {
+        if (game.account.cpu_used_percent>=100 && game.settings.check_cpu_level) {
             console.log(game.account_name + " CPU 100% перегрето. подождем");
             return;
         }
@@ -396,6 +396,13 @@ Vue.mixin({
             // console.log('all actions are paused on ' + game.account_name);
             return;
         }
+        
+        // проверим не перегрелся ли CPU 
+        if (game.account.cpu_used_percent>=100 && game.settings.check_cpu_level) {
+            console.log(game.account_name + " CPU 100% перегрето. подождем");
+            return;
+        }
+
         // если есть приватный ключ, используем его. если есть вакс логин, то сбрасываем ключ
         let pkey = game.settings.private_key && game.settings.private_key!='' ? game.settings.private_key : null;
         pkey = game.wax_login ? null : pkey;
