@@ -192,7 +192,7 @@
                 {{$t('Collected income')}}:
                 ~{{formatAsset( angelBalance.total_wax )}}￦
                 &nbsp;&nbsp;
-                (5%: {{formatAsset( angelBalance.balance_wax )}}￦)
+                (3%: {{formatAsset( angelBalance.balance_wax )}}￦)
                 <!-- {{$t('Donated')}}: {{farm.donations}}￦ -->
                 <div class="mx-n1 px-0">
                     <FarmIncome :income="farm.income"/>

@@ -197,15 +197,15 @@
   "Gold Membership Silver": "Серебряный Мембер на Золото",
   "Gold Membership Gold": "Золотой Мембер на Золото",
   
-  "short-Food Membership Bronze": "БРОНЗА МЕМБЕР",
-  "short-Food Membership Silver": "СЕРЕБРО МЕМБЕР",
-  "short-Food Membership Gold": "ЗОЛОТО МЕМБЕР",
-  "short-Wood Membership Bronze": "БРОНЗА МЕМБЕР",
-  "short-Wood Membership Silver": "СЕРЕБРО МЕМБЕР",
-  "short-Wood Membership Gold": "ЗОЛОТО МЕМБЕР",
-  "short-Gold Membership Bronze": "БРОНЗА МЕМБЕР",
-  "short-Gold Membership Silver": "СЕРЕБРО МЕМБЕР",
-  "short-Gold Membership Gold": "ЗОЛОТО МЕМБЕР",
+  "short-Food Membership Bronze": "БРОНЗА МЕМБЕР ЕДА",
+  "short-Food Membership Silver": "СЕРЕБРО МЕМБЕР ЕДА",
+  "short-Food Membership Gold": "ЗОЛОТО МЕМБЕР ЕДА",
+  "short-Wood Membership Bronze": "БРОНЗА МЕМБЕР ДЕРЕВО",
+  "short-Wood Membership Silver": "СЕРЕБРО МЕМБЕР ДЕРЕВО",
+  "short-Wood Membership Gold": "ЗОЛОТО МЕМБЕР ДЕРЕВО",
+  "short-Gold Membership Bronze": "БРОНЗА МЕМБЕР ЗОЛОТО",
+  "short-Gold Membership Silver": "СЕРЕБРО МЕМБЕР ЗОЛОТО",
+  "short-Gold Membership Gold": "ЗОЛОТО МЕМБЕР ЗОЛОТО",
 
   "CRAFT & MARKET": "КРАФТ И РЫНОК",
   "Craft cost": "Цена крафта",
@@ -499,6 +499,7 @@
   "AVATARS": "АВАТАРЫ",
   "RANDOM NODE": "СЛУЧАЙНАЯ НОДА",
   "MINT NFT": "СОЗДАТЬ NFT",
-  "Check CPU Level": "Проверять уровень ЦПУ"
+  "Check CPU Level": "Проверять уровень ЦПУ",
+  "Use stores from members": "Экономить клеймы"
 
 }

@@ -113,8 +113,8 @@ Vue.mixin({
                 }
                     
                 // Если инструмент готов к работе, заберем результат
-                var crop_date = new Date(parseInt(tool["next_availability"]) * 1000);
-                if (crop_date < new Date()) {
+                // var crop_date = new Date(parseInt(tool["next_availability"]) * 1000);
+                if (tool.next_date < new Date()) {
                     const res = await this.fw_claim(tool["asset_id"], game.account_name, pkey, delegate);
                     if (res.status===true) {
                         this.log_action(this.$t("Claimed") + " " + this.$t(tool["name"]), res.result, this.$t(tool["name"]), tool["asset_id"]);

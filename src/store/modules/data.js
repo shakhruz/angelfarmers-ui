@@ -49,17 +49,17 @@ export const assets_info = [
     
     {'name': 'Farmers Coin', 'template_id': "260676", 'gold': 0, 'wood': 0, 'schema_name':'farmercoins', cost: {gold: 0, wood:0, food: 0, fc: 1}, exchange: false},
 
-    {'name': 'Food Membership Bronze', 'template_id': "260636", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false},
-    {'name': 'Food Membership Silver', 'template_id': "260638", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false},
-    {'name': 'Food Membership Gold', 'template_id': "260639", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false},
+    {'name': 'Food Membership Bronze', 'template_id': "260636", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false, type: "Food"},
+    {'name': 'Food Membership Silver', 'template_id': "260638", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false, type: "Food"},
+    {'name': 'Food Membership Gold', 'template_id': "260639", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false, type: "Food"},
 
-    {'name': 'Wood Membership Bronze', 'template_id': "260628", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false},
-    {'name': 'Wood Membership Silver', 'template_id': "260629", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false},
-    {'name': 'Wood Membership Gold', 'template_id': "260631", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false},
+    {'name': 'Wood Membership Bronze', 'template_id': "260628", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false, type: "Wood"},
+    {'name': 'Wood Membership Silver', 'template_id': "260629", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false, type: "Wood"},
+    {'name': 'Wood Membership Gold', 'template_id': "260631", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false, type: "Wood"},
 
-    {'name': 'Gold Membership Bronze', 'template_id': "260642", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false},
-    {'name': 'Gold Membership Silver', 'template_id': "260644", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false},
-    {'name': 'Gold Membership Gold', 'template_id': "260647", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false},
+    {'name': 'Gold Membership Bronze', 'template_id': "260642", 'gold': 400, 'wood': 0, 'schema_name':'memberships', cost: {gold: 400, wood:0, food: 0, fc: 60}, exchange: false, type: "Gold"},
+    {'name': 'Gold Membership Silver', 'template_id': "260644", 'gold': 800, 'wood': 0, 'schema_name':'memberships', cost: {gold: 800, wood:0, food: 0, fc: 120}, exchange: false, type: "Gold"},
+    {'name': 'Gold Membership Gold', 'template_id': "260647", 'gold': 1600, 'wood': 0, 'schema_name':'memberships', cost: {gold: 1600, wood:0, food: 0, fc: 240}, exchange: false, type: "Gold"},
 
 ];
 

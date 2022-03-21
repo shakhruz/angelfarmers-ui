@@ -61,6 +61,11 @@ export async function getGame(game, prices, atomic_assets, default_settings) {
     game.next_action = null;
     game.next_action_account = '';
 
+    // Получим список мемберов
+    let mbs_info = await getFWMbs(game.account_name);
+    if (mbs_info) game.mbs = mbs_info; 
+    if (game.mbs) game = calcFWMbs(game);
+    
     // Получим список инструментов и просчитаем их расход и доход
     let tools_info = await getFWTools(game.account_name);
     if (tools_info) game.tools = tools_info;
@@ -80,11 +85,6 @@ export async function getGame(game, prices, atomic_assets, default_settings) {
     let animals_info = await getFWAnimals(game.account_name);
     if (animals_info) game.animals = animals_info; 
     if (game.animals) game = calcFWAnimals(game, atomic_assets);
-
-    // Получим список мемберов
-    let mbs_info = await getFWMbs(game.account_name);
-    if (mbs_info) game.mbs = mbs_info; 
-    if (game.mbs) game = calcFWMbs(game);
 
     // Получим список активов
     let assets_info = await getFWAssets(game.account_name);
@@ -124,6 +124,9 @@ export async function updateGame(game, prices, atomic_assets) {
     game.next_action = null;
     game.next_action_date = null;    
 
+    if (game.mbs) game = calcFWMbs(game);
+    else game.mbs = {list:[], total_wax: 0}
+
     if (game.tools) game = calcFWTools(game);
     else game.tools = {list: [], total_wax: 0}
 
@@ -135,9 +138,6 @@ export async function updateGame(game, prices, atomic_assets) {
 
     if (game.animals) game = calcFWAnimals(game, atomic_assets);
     else game.animals = {list:[], total_wax: 0}
-
-    if (game.mbs) game = calcFWMbs(game);
-    else game.mbs = {list:[], total_wax: 0}
 
     if (game.assets) game = calcFWAssets(game, atomic_assets);
     else game.assets = {list: [], total_wax:0}
@@ -472,12 +472,21 @@ export function calcFWTools(game, t) {
         game.tools.cost += tool_cost;
 
         // Дата следующего сбора ресурсов
-        const next_date = new Date(parseInt(tool["next_availability"]) * 1000);
+        let next_date = new Date(parseInt(tool["next_availability"]) * 1000);
         const now = new Date();
         
         // Количество минут до следующего сбора
-        const claim_mins = Math.round((next_date - now)/1000/60);
+        let claim_mins;
+        if (game.settings.use_stored_mining) {
+            let stored = 0;
+            if (tool_info.type=="Wood") stored = game.mbs.wood_storage;
+            if (tool_info.type=="Food") stored = game.mbs.food_storage;
+            if (tool_info.type=="Good") stored = game.mbs.gold_storage;
+            next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 60 * 60 * 1000);
+        }
+        claim_mins = Math.round((next_date - now)/1000/60);
         game.tools.list[tool_counter].claim_mins = claim_mins;
+        game.tools.list[tool_counter].next_date = next_date;
 
         // Это ближайшее действие?
         if (game.tools.next_action_date==null || (game.tools.next_action_date!=null && next_date < game.tools.next_action_date)) {
@@ -930,6 +939,10 @@ export async function getFWMbs(account) {
 // Просчитаем список мемберов
 export function calcFWMbs(game) {
     game.mbs.daily_expense_food = 0;
+    game.mbs.food_storage = 0;
+    game.mbs.wood_storage = 0;
+    game.mbs.gold_storage = 0;
+
     if (game.mbs && game.mbs.list) {
         for(var c=0; c<game.mbs.list.length; c++) {
             game.mbs.list[c]["id"] = "m" + (c + 1).toString();
@@ -944,6 +957,33 @@ export function calcFWMbs(game) {
                 game.mbs.list[c].claim_mins = Math.round((claim_date - nowTime)/1000/60);
                 game.mbs.list[c].unstaking_mins = Math.round((unstaking_time - nowTime)/1000/60);
                 game.mbs.list[c].daily_expense_food = 100/5;
+
+                switch(asset_info.type) {
+                    case "Wood": 
+                        // bronze
+                        if (asset_info.template_id == "260628") game.mbs.wood_storage += 1;
+                        // silver
+                        if (asset_info.template_id == "260629") game.mbs.wood_storage += 2;
+                        // gold
+                        if (asset_info.template_id == "260631") game.mbs.wood_storage += 4;                        
+                        break;
+                    case "Food":
+                        // bronze
+                        if (asset_info.template_id == "260636") game.mbs.food_storage += 1;
+                        // silver
+                        if (asset_info.template_id == "260638") game.mbs.food_storage += 2;
+                        // gold
+                        if (asset_info.template_id == "260639") game.mbs.food_storage += 4;                        
+                        break;
+                    case "Gold":
+                        // bronze
+                        if (asset_info.template_id == "260642") game.mbs.gold_storage += 1;
+                        // silver
+                        if (asset_info.template_id == "260644") game.mbs.gold_storage += 2;
+                        // gold
+                        if (asset_info.template_id == "260647") game.mbs.gold_storage += 4;                        
+                        break;
+                }
         
                 if (isNaN(game.next_claim_date) || !game.next_claim_date || game.next_claim_date==null || (game.next_claim_date!=null && claim_date < game.next_claim_date)) {
                     game.next_claim_date = claim_date;
@@ -960,7 +1000,6 @@ export function calcFWMbs(game) {
             } else {
                 console.log("Не смог найти актив: " + game.mbs.list[c]["template_id"]);
             }
-    
         }    
     }
     return game;
