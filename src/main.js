@@ -18,7 +18,7 @@ import "@/service/dfuseapi";
 import "@/service/fb";
 import VueTimers from 'vue-timers'
 import vuetify from './plugins/vuetify'
-import Toast from "vue-toastification";
+import Toast, {POSITION} from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import VuetifyDialog from 'vuetify-dialog'
 import 'vuetify-dialog/dist/vuetify-dialog.css'
@@ -40,7 +40,12 @@ Vue.use(firestorePlugin)
 // Vue.use(VueIpfs)
 
 Vue.config.productionTip = false
-Vue.use(Toast, {});
+Vue.use(Toast, {
+  position: POSITION.BOTTOM_LEFT,
+  transition: "Vue-Toastification__bounce",
+  maxToasts: 3,
+  newestOnTop: true 
+});
 Vue.use(VueAnalytics, {
   id: 'UA-135285458-1',
   router
