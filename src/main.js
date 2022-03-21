@@ -44,6 +44,7 @@ Vue.use(Toast, {
   position: POSITION.BOTTOM_LEFT,
   transition: "Vue-Toastification__bounce",
   maxToasts: 3,
+  timeout: 1000,
   newestOnTop: true 
 });
 Vue.use(VueAnalytics, {
