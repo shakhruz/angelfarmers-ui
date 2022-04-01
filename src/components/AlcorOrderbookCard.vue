@@ -439,19 +439,19 @@ export default {
       return this.orderbooks.fww.asks.slice(0,this.show_book_orders).reverse();
     },
     orderbook_fww_bids() {
-      return this.orderbooks.fww.bids.slice(0,this.show_book_orders).reverse();
+      return this.orderbooks.fww.bids.slice(0,this.show_book_orders);
     },
     orderbook_fwf_asks() {
       return this.orderbooks.fwf.asks.slice(0,this.show_book_orders).reverse();
     },
     orderbook_fwf_bids() {
-      return this.orderbooks.fwf.bids.slice(0,this.show_book_orders).reverse();
+      return this.orderbooks.fwf.bids.slice(0,this.show_book_orders);
     },
     orderbook_fwg_asks() {
       return this.orderbooks.fwg.asks.slice(0,this.show_book_orders).reverse();
     },
     orderbook_fwg_bids() {
-      return this.orderbooks.fwg.bids.slice(0,this.show_book_orders).reverse();
+      return this.orderbooks.fwg.bids.slice(0,this.show_book_orders);
     },
   }
 };
