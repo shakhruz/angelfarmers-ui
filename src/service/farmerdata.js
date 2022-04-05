@@ -33,7 +33,7 @@ Vue.mixin({
     
         {'name': "Fishing Rod", 'template_id': "203887", 'gold': 200, 'wood': 1200, 'schema_name': 'tools'},
         {'name': "Fishing Net", 'template_id': "203888", 'gold': 800, 'wood': 4800, 'schema_name': 'tools'},
-        {'name': "Boat", 'template_id': "203889", 'gold': 3200, 'wood': 19200, 'schema_name': 'tools'},
+        {'name': "Fishing Boat", 'template_id': "203889", 'gold': 3200, 'wood': 19200, 'schema_name': 'tools'},
     
         {'name': "Mining Excavator", 'template_id': "203891", 'gold': 4000, 'wood': 24000, 'schema_name': 'tools'},
     

@@ -29,7 +29,7 @@ export const assets_info = [
 
     {'name': "Fishing Rod", 'template_id': "203887", 'gold': 200, 'wood': 1200, 'schema_name': 'tools', cost: {gold: 200, wood:1200, food: 0, fc: 0}, energy: 0, repair: 5, exchange: false},
     {'name': "Fishing Net", 'template_id': "203888", 'gold': 800, 'wood': 4800, 'schema_name': 'tools', cost: {gold: 800, wood:4800, food: 0, fc: 0}, energy: 0, repair: 20, exchange: false},
-    {'name': "Boat", 'template_id': "203889", 'gold': 3200, 'wood': 19200, 'schema_name': 'tools', cost: {gold: 3200, wood:19200, food: 0, fc: 0}, energy: 0, repair: 32, exchange: false},
+    {'name': "Fishing Boat", 'template_id': "203889", 'gold': 3200, 'wood': 19200, 'schema_name': 'tools', cost: {gold: 3200, wood:19200, food: 0, fc: 0}, energy: 0, repair: 32, exchange: false},
 
     {'name': "Mining Excavator", 'template_id': "203891", 'gold': 4000, 'wood': 24000, 'schema_name': 'tools', cost: {gold: 4000, wood:24000, food: 0, fc: 0}, energy: 133, repair: 5, exchange: false},
 
