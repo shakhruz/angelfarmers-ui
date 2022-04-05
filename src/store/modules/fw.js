@@ -481,8 +481,12 @@ export function calcFWTools(game, t) {
             let stored = 0;
             if (tool_info.type=="Wood") stored = game.mbs.wood_storage;
             if (tool_info.type=="Food") stored = game.mbs.food_storage;
-            if (tool_info.type=="Good") stored = game.mbs.gold_storage;
-            next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 60 * 60 * 1000);
+            if (tool_info.type=="Good") {
+                stored = game.mbs.gold_storage;
+                next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 120 * 60 * 1000);
+            } else {
+                next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 60 * 60 * 1000);
+            }
         }
         claim_mins = Math.round((next_date - now)/1000/60);
         game.tools.list[tool_counter].claim_mins = claim_mins;
