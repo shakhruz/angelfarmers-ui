@@ -484,7 +484,6 @@ export function calcFWTools(game, t) {
             if (tool_info.type=="Gold") {
                 stored = game.mbs.gold_storage;
                 next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 120 * 60 * 1000);
-                console.log("gold tool next date: ", next_date);
             } else {
                 next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 60 * 60 * 1000);
             }
