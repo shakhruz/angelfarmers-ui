@@ -481,9 +481,10 @@ export function calcFWTools(game, t) {
             let stored = 0;
             if (tool_info.type=="Wood") stored = game.mbs.wood_storage;
             if (tool_info.type=="Food") stored = game.mbs.food_storage;
-            if (tool_info.type=="Good") {
+            if (tool_info.type=="Gold") {
                 stored = game.mbs.gold_storage;
                 next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 120 * 60 * 1000);
+                console.log("gold tool next date: ", next_date);
             } else {
                 next_date = new Date(parseInt(tool["next_availability"]) * 1000 + stored * 60 * 60 * 1000);
             }
