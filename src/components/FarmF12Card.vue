@@ -175,10 +175,13 @@
         <FarmChest :farm="farm" />             
         <v-divider></v-divider>
         <v-card-subtitle class="mt-0 pt-1 mb-0 pb-1">
+            <div v-if="farm.donate>3" class="red--text">
+                {{$t('please_donate_message')}}
+            </div>
             <span>
                 {{$t('AF Balance')}}:
-                <span :class="angelBalance.donate>0? 'red--text' : 'green--text'">
-                    {{formatAsset( -angelBalance.donate )}}₳
+                <span :class="farm.donate>0? 'red--text' : 'green--text'">
+                    {{formatAsset( -farm.donate )}}₳
                 </span>                
                 &nbsp;&nbsp;
                 {{$t('Available')}}:
@@ -190,9 +193,9 @@
             </span>
             <div v-if="farm.income" class="py-0">
                 {{$t('Collected income')}}:
-                ~{{formatAsset( angelBalance.total_wax )}}￦
+                ~{{formatAsset( farm.total_income_wax )}}￦
                 &nbsp;&nbsp;
-                (3%: {{formatAsset( angelBalance.balance_wax )}}￦)
+                (3%: {{formatAsset( farm.total_balance_wax )}}￦)
                 <!-- {{$t('Donated')}}: {{farm.donations}}￦ -->
                 <div class="mx-n1 px-0">
                     <FarmIncome :income="farm.income"/>

@@ -190,6 +190,26 @@ function calcTotals(game) {
     game.managed = game.wax_login || (game.settings.private_key && game.settings.private_key.trim()!='') || (game.settings.delegated_account && game.settings.delegated_account.trim()!='');
     game.mins_to_action = game.next_action_date != null ? Math.round((game.next_action_date - new Date())/1000/60) : null;
 
+    if (game.income) {
+        let total_wax = game.income.wood * game.prices.fww + game.income.food*game.prices.fwf + game.income.gold*game.prices.fwg +
+        game.income.barley*game.prices.fwg*41 + game.income.corn*game.prices.fwg*61 + game.income.eggs*game.prices.fwg*281 + 
+        game.income.milk*game.prices.fwg*141;
+        let balance_wax = total_wax*0.03;
+        game.donate = balance_wax - game.awax_balance;
+        game.total_balance_wax = balance_wax
+        game.total_income_wax = total_wax;
+        console.log("game " + game.account_name + " donate: " + game.donate);
+        if (game.donate > 3) {
+            game.settings.pause_all_actions = true;
+            console.log("paused the game " + game.account_name);
+        }
+    } else {
+        game.donate = 0;
+        game.total_balance_wax = 0;
+        game.total_income_wax = 0;
+    }
+
+
     return game;
 }
 
