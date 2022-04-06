@@ -35,6 +35,16 @@
       <v-card-text>
         {{$t("Telegram Bot")}}
         <a href="https://t.me/angelfarmers_bot" target="_blank">@AngelFarmers_bot</a>
+        <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+        <v-btn icon :href="$t('https://t.me/angelfarmers')" target="_blank">
+          <v-icon>mdi-send-circle</v-icon>
+        </v-btn>
+        <v-btn icon href="https://discord.gg/8MMNeTMMGj" target="_blank">
+          <v-icon>mdi-discord</v-icon>
+        </v-btn>
+
         <!-- v1.0.0 -->
         <!-- <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
           <v-icon>mdi-github</v-icon>
@@ -73,15 +83,6 @@
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon href="https://github.com/shakhruz/angelfarmers-ui" target="_blank">
-          <v-icon>mdi-github</v-icon>
-        </v-btn>
-        <v-btn icon :href="$t('https://t.me/angelfarmers')" target="_blank">
-          <v-icon>mdi-send-circle</v-icon>
-        </v-btn>
-        <v-btn icon href="https://discord.gg/6ZZ6KFUz" target="_blank">
-          <v-icon>mdi-discord</v-icon>
-        </v-btn>
         <!-- <TopMenu />         -->
         <v-spacer></v-spacer>
         <span v-if="$store.state.config">
