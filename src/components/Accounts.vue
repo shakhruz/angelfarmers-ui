@@ -49,7 +49,7 @@
                 <div class="mt-2">
                     {{$t("Join us on")}}
                     <a :href="$t('https://t.me/angelfarmers')" class="amber--text" target="_blank">Telegram</a> {{$t("and")}} 
-                    <a href="https://discord.gg/6ZZ6KFUz" class="amber--text" target="_blank">Discord</a>
+                    <a href="https://discord.gg/8MMNeTMMGj" class="amber--text" target="_blank">Discord</a>
                 </div>
                 <div class="mt-2">
                     <strong>{{$t("F12+ features")}}:</strong>
