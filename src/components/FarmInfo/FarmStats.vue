@@ -124,6 +124,33 @@
                 </v-chip>
             </v-col>
         </v-row>
+        <v-row no-gutters class="mt-1" dense>
+            <v-col>       
+                &nbsp;     
+            </v-col>
+            <v-col>
+                ${{ formatAssetPrice((farm.tokens.fwg*farm.prices.fwg + farm.tokens.fww*farm.prices.fww + farm.tokens.fwf*farm.prices.fwf)*farm.prices.wax) }}
+            </v-col>
+            <v-col>
+                <v-chip label small >
+                    ${{ formatAssetPrice((farm.balance.gold*farm.prices.fwg + farm.balance.wood*farm.prices.fww+farm.balance.food*farm.prices.fwf)*farm.prices.wax) }}
+                </v-chip>
+            </v-col>
+            <v-col>
+                <v-chip label small outlined>
+                    <strong>
+                        ${{ formatAssetPrice((farm.daily_output_gold*farm.prices.fwg+farm.daily_output_food*farm.prices.fwf+farm.daily_output_wood*farm.prices.fww)*farm.prices.wax) }}
+                    </strong>
+                </v-chip>
+            </v-col>
+            <v-col>
+                <v-chip label small outlined>
+                    <strong>
+                        ${{ formatAssetPrice((farm.daily_profit_gold*farm.prices.fwg+farm.daily_profit_food*farm.prices.fwf+farm.daily_profit_wood*farm.prices.fww)*farm.prices.wax) }}
+                    </strong>
+                </v-chip>
+            </v-col>
+        </v-row>
     </v-card-text>  
 </template>
 
