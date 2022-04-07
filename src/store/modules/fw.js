@@ -198,10 +198,18 @@ function calcTotals(game) {
         game.donate = balance_wax - game.awax_balance;
         game.total_balance_wax = balance_wax
         game.total_income_wax = total_wax;
-        console.log("game " + game.account_name + " donate: " + game.donate);
+        // console.log("game " + game.account_name + " donate: " + game.donate);
         if (game.donate > 3) {
             game.settings.pause_all_actions = true;
-            console.log("paused the game " + game.account_name);
+            game.settings.paused_by_bot = true;
+            // console.log("paused the game " + game.account_name);
+        } else {
+            // если бот был остановлен ботом, но теперь его можно включить, т.к. донат положительный
+            if (game.settings.paused_by_bot && game.settings.pause_all_actions) {
+                game.settings.pause_all_actions = false;
+                game.settings.paused_by_bot = false;
+                console.log("unpause now, there is balance...");
+            }
         }
     } else {
         game.donate = 0;

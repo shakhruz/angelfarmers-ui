@@ -60,6 +60,7 @@ export default new Vuex.Store({
       hide: false, // прятать диалог с настройками
       check_cpu_level: true,
       use_stored_mining: false,
+      paused_by_bot: false,
     },
     updatingPrices: false,
     updatingInfo: false,
