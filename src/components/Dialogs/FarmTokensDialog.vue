@@ -329,7 +329,7 @@ export default {
       if (res) {
           this.$emit("closeDialog");
           const res = await this.fw_transfer_all_tokens(this.farm.account_name, this.to_farm_account, 
-                                                        this.fwg_t_qty, this.fww_t_qty, this.fwf_t_qty, 
+                                                        this.fwg_t_qty, this.fww_t_qty, this.fwf_t_qty, '',
                                   this.farm.settings.private_key, this.farm.settings.delegated_account);
           if (res.status) {
               this.$toast.success(this.$t("Successfully transferred") + " " + amount + " " +
